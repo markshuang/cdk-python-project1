@@ -1,62 +1,59 @@
----- Can look at the terraform modules (typescript) at pocket site, use them as models to create corresponding ones in python 
-terraform-modules/src/base at main · Pocket/terraform-modules (github.com)  
+---- Can look at the terraform modules (typescript) at pocket site, use them as models to create corresponding ones in python   
+[terraform-modules/src/base at main · Pocket/terraform-modules (github.com) ](https://github.com/Pocket/terraform-modules/tree/main/src/base)   
 
--- search for cdktf python projects in Github
-Search · cdktf (github.com) 
---search for "Terraform cdk" in github
-Search · "Terraform CDK" (github.com) 
+-- search for cdktf python projects in Github  
+[Search · cdktf (github.com) ](https://github.com/search?l=Python&p=3&q=cdktf&type=Repositories)  
+--search for "Terraform cdk" in github  
+[Search · "Terraform CDK" (github.com) ](https://github.com/search?l=Python&q=%22Terraform+CDK%22&type=Repositories)  
 
--- aws config
-cdktf-ex/main.py at main · nbekenov/cdktf-ex (github.com)  
+-- aws config  
+[cdktf-ex/main.py at main · nbekenov/cdktf-ex (github.com)  ](https://github.com/nbekenov/cdktf-ex/blob/main/aws-config/main.py)  
+[
+cmclaughlin/hashiconf-cdktf-2021 (github.com)  ](https://github.com/cmclaughlin/hashiconf-cdktf-2021/)  
 
-cmclaughlin/hashiconf-cdktf-2021 (github.com)  
+[Pocket/data-flows: Pocket data flows or chestrated using Prefect (github.com)  ](https://github.com/Pocket/data-flows)  
 
-Pocket/data-flows: Pocket data flows orchestrated using Prefect (github.com)  
+[cdktf/main.py at main · swethamothe/cdktf (github.com)  ](https://github.com/swethamothe/cdktf/blob/main/ec2/main.py)  
 
-cdktf/main.py at main · swethamothe/cdktf (github.com)  
+[cdktf/main.py at main · Devsharma27/cdktf (github.com)  ](https://github.com/Devsharma27/cdktf/blob/main/main.py)  
 
-cdktf/main.py at main · Devsharma27/cdktf (github.com)  
+[cdktf-get-started/main.py at main · ibm-xaas/cdktf-get-started (github.com)](https://github.com/ibm-xaas/cdktf-get-started/blob/main/learn-cdktf-python/main.py)  
 
-cdktf-get-started/main.py at main · ibm-xaas/cdktf-get-started (github.com)
+-- ecs, rds  
+[cdktf-python/main.py at main · byhbt/cdktf-python (github.com)](https://github.com/byhbt/cdktf-python/blob/main/main.py)  
 
--- ecs, rds
-cdktf-python/main.py at main · byhbt/cdktf-python (github.com)
+-- eks, helm with both aws provider and vpc, eks module   
+[pavan8855/enthire: EKS using terraform-cdk (github.com)](https://github.com/pavan8855/enthire)  
 
--- eks, helm with both aws provider and vpc, eks module 
-pavan8855/enthire: EKS using terraform-cdk (github.com)
+-- vpc, lambda, api gateway  
+[TerraformCdkNotesDemo/main.py at master · eladrapoportcybr/TerraformCdkNotesDemo (github.com)](https://github.com/eladrapoportcybr/TerraformCdkNotesDemo/blob/master/main.py)  
 
--- vpc, lambda, api gateway
-TerraformCdkNotesDemo/main.py at master · eladrapoportcybr/TerraformCdkNotesDemo (github.com)
+-- python invoke with ckdtf  
+[vsuzdaltsev/terraform-cdk-examples: terraform-cdk (https://github.com/hashicorp/terraform-cdk) extended examples](https://github.com/vsuzdaltsev/terraform-cdk-examples)  
 
--- python invoke with ckdtf
-vsuzdaltsev/terraform-cdk-examples: terraform-cdk (https://github.com/hashicorp/terraform-cdk) extended examples
+-- ecs  
+[ContainersFromTheCouch-terraform-cdk-example/main.py at master · adamjkeller/ContainersFromTheCouch-terraform-cdk-example (github.com)](https://github.com/adamjkeller/ContainersFromTheCouch-terraform-cdk-example/blob/master/main.py)  
 
---cdktf workshop, not much, can be ignored
-chefgs/tfcdk: Terraform CDK Sample Workouts (github.com)
+-- vpc, s3, rds, cache, ecr,  
+[tomusher/wagtail-cloud: Terraform CDK constructs for deploying Wagtail to various cloud providers (github.com)](https://github.com/tomusher/wagtail-cloud)  
 
--- ecs
-ContainersFromTheCouch-terraform-cdk-example/main.py at master · adamjkeller/ContainersFromTheCouch-terraform-cdk-example (github.com)
+-- multi-stack v2  
+[spareslant/oci_multi_stack_terraform_cdk_python_v2 (github.com)  ](https://github.com/spareslant/oci_multi_stack_terraform_cdk_python_v2)  
 
--- vpc, s3, rds, cache, ecr,
-tomusher/wagtail-cloud: Terraform CDK constructs for deploying Wagtail to various cloud providers (github.com)
+-- alb, ecs, rds, ssm, log  
+[byhbt/cdktf-python: Project for exploring TFCDK (github.com) ](https://github.com/byhbt/cdktf-python)   
 
--- multi-stack v2
-spareslant/oci_multi_stack_terraform_cdk_python_v2 (github.com)  
+--vpc, subnet, internet gateway, route table, eks  
+[cdktf-aws-python/main.py at main · celeguim/cdktf-aws-python (github.com)](https://github.com/celeguim/cdktf-aws-python/blob/main/cdktf-aws-python/main.py)  
 
--- alb, ecs, rds, ssm, log
-byhbt/cdktf-python: Project for exploring TFCDK (github.com)  
+-- using account, profile for different account and its profile for deployment  
+[cdktf-ex/main.py at main · nbekenov/cdktf-ex (github.com)](https://github.com/nbekenov/cdktf-ex/blob/main/aws-config/main.py)  
 
---vpc, subnet, internet gateway, route table, eks
-cdktf-aws-python/main.py at main · celeguim/cdktf-aws-python (github.com)
+-- static website on s3  
+[cdktf-python-aws-staticwebsite/main.py at main · bjiusc/cdktf-python-aws-staticwebsite (github.com)](https://github.com/bjiusc/cdktf-python-aws-staticwebsite/blob/main/main.py)  
 
--- using account, profile for different account and its profile for deployment
-cdktf-ex/main.py at main · nbekenov/cdktf-ex (github.com)
-
--- static website on s3
-cdktf-python-aws-staticwebsite/main.py at main · bjiusc/cdktf-python-aws-staticwebsite (github.com)
-
--- config and custom construct
-cdktf-demo/main.py at main · caning01/cdktf-demo (github.com)
+-- config and custom construct  
+[cdktf-demo/main.py at main · caning01/cdktf-demo (github.com)](https://github.com/caning01/cdktf-demo/blob/main/main.py)  
 
 {
   "language": "python",
@@ -74,74 +71,74 @@ cdktf-demo/main.py at main · caning01/cdktf-demo (github.com)
   }
 }
 
--- cross-stack, base-stack, lambda
-cdktf-cross-stack/main.py at master · dhmistry3/cdktf-cross-stack (github.com)
+-- cross-stack, base-stack, lambda  
+[cdktf-cross-stack/main.py at master · dhmistry3/cdktf-cross-stack (github.com)](https://github.com/dhmistry3/cdktf-cross-stack/blob/master/main.py)  
 
--- google
-walkerk1980/cdktf_gcp_vm_unifi: terraform cdk stack to deploy Unifi controller on GCP (github.com)
+-- google  
+[walkerk1980/cdktf_gcp_vm_unifi: terraform cdk stack to deploy Unifi controller on GCP (github.com)](https://github.com/walkerk1980/cdktf_gcp_vm_unifi)  
 
--- R53,
-cdktf-boiler-template/main.py at main · gonzape27/cdktf-boiler-template (github.com)
+-- R53,  
+[cdktf-boiler-template/main.py at main · gonzape27/cdktf-boiler-template (github.com)](https://github.com/gonzape27/cdktf-boiler-template/blob/main/main.py)  
 
--- codepipeline
-cdktf-boiler-template/codepipeline.py at main · gonzape27/cdktf-boiler-template (github.com)
--- codebuild, codepipeline,R53, cloudfront, certificate, iam
-cdktf-boiler-template/functions at main · gonzape27/cdktf-boiler-template (github.com)
+-- codepipeline  
+[cdktf-boiler-template/codepipeline.py at main · gonzape27/cdktf-boiler-template (github.com)](https://github.com/gonzape27/cdktf-boiler-template/blob/main/functions/codepipeline.py)  
+-- codebuild, codepipeline,R53, cloudfront, certificate, iam  
+[cdktf-boiler-template/functions at main · gonzape27/cdktf-boiler-template (github.com)](https://github.com/gonzape27/cdktf-boiler-template/tree/main/functions)  
 
--- vpc, subent, ec2, instance profile
-cdktf-samples-python/main.py at main · shazi7804/cdktf-samples-python (github.com)
+-- vpc, subnet, ec2, instance profile  
+[cdktf-samples-python/main.py at main · shazi7804/cdktf-samples-python (github.com)](https://github.com/shazi7804/cdktf-samples-python/blob/main/main.py)  
 
--- github repo
-github-terraform-cdktf/main.py at develop · vishnu-chegondi/github-terraform-cdktf
+-- github repo  
+[github-terraform-cdktf/main.py at develop · vishnu-chegondi/github-terraform-cdktf](https://github.com/vishnu-chegondi/github-terraform-cdktf/blob/develop/main.py)  
 
--- google
-gcp-cdktf-example/main.py at main · lmayorga1980/gcp-cdktf-example (github.com)
+-- google  
+[gcp-cdktf-example/main.py at main · lmayorga1980/gcp-cdktf-example (github.com)](https://github.com/lmayorga1980/gcp-cdktf-example/blob/main/gcp/main.py)  
 
--- serverless, S3, cloudfront, iam, lambda, dynamoDB, API gateway
-Maed223/cdktf-integration-serverless-python-example: This repo contains an end to end example in Python for a serverless web application hosted on AWS and deployed with the CDK for Terraform. Please refer to the guide for more information. (github.com)
+-- serverless, S3, cloudfront, iam, lambda, dynamoDB, API gateway  
+[Maed223/cdktf-integration-serverless-python-example: This repo contains an end to end example in Python for a serverless web application hosted on AWS and deployed with the CDK for Terraform. Please refer to the guide for more information. (github.com)](https://github.com/Maed223/cdktf-integration-serverless-python-example)  
 
--- ssm
-tdd-terraform-cdk/main.py at master · yobooooi/tdd-terraform-cdk (github.com)
+-- ssm  
+[tdd-terraform-cdk/main.py at master · yobooooi/tdd-terraform-cdk (github.com)](https://github.com/yobooooi/tdd-terraform-cdk/blob/master/main.py)  
 
---vpc, subnet, token
+--vpc, subnet, token  
 https://github.com/chandler-mcfly/terraformAWSCdktfPython/blob/main/main_edited.py
 
--- api gateway, lambda, aws config, waf, aws firewall manager
-nbekenov/cdktf-ex: Example of using Terraform CDK (github.com)
+-- api gateway, lambda, aws config, waf, aws firewall manager  
+[nbekenov/cdktf-ex: Example of using Terraform CDK (github.com)](https://github.com/nbekenov/cdktf-ex)  
 
--- Developer's Helper to Docker, Kubernetes, and Terraform. Fully automatic, without any config or question
-gepp/main.py at main · gurayops/gepp (github.com)
+-- Developer's Helper to Docker, Kubernetes, and Terraform. Fully automatic, without any config or question  
+[gepp/main.py at main · gurayops/gepp (github.com)](https://github.com/gurayops/gepp/blob/main/main.py)  
 
-Creating Kubernetes Cluster on Azure with Terraform and Python using CDK for Terraform | by Guray Yildirim | Medium
+[Creating Kubernetes Cluster on Azure with Terraform and Python using CDK for Terraform | by Guray Yildirim | Medium](https://medium.com/@gurayy/creating-kubernetes-cluster-on-azure-with-terraform-and-python-using-cdk-for-terraform-8237ffa15092)  
 
-Managing your GitHub setup with python using the Terraform CDK | Lucas Melin
+[Managing your GitHub setup with python using the Terraform CDK | Lucas Melin](https://www.lucasmelin.com/managing-your-git-hub-setup-with-python-using-the-terraform-cdk)  
 
--- init first, then pip install 
-cdktf init --template="python-pip" --local
-pip install -r requirements.txt
+-- init first, then pip install  
+cdktf init --template="python-pip" --local  
+pip install -r requirements.txt  
 
-From <https://www.lucasmelin.com/managing-your-git-hub-setup-with-python-using-the-terraform-cdk> 
+From <https://www.lucasmelin.com/managing-your-git-hub-setup-with-python-using-the-terraform-cdk>   
 
-Cdktf init --help
+Cdktf init --help  
 
-Infrastructure as Code Using AWS Cloud Development Kit — Patricia Anong (patricia-anong.com)
+Infrastructure as Code Using AWS Cloud Development Kit — Patricia Anong (patricia-anong.com)  
 
-Create AWS Infrastructure using CDK for Terraform - Style-Tricks
+Create AWS Infrastructure using CDK for Terraform - Style-Tricks  
 
-Deploy AWS Lambda with CDK for Terraform | by Nathan Bekenov | DAE blog | Medium
+Deploy AWS Lambda with CDK for Terraform | by Nathan Bekenov | DAE blog | Medium  
 
-cdktf-ex/lambda-example at main · nbekenov/cdktf-ex (github.com)
+cdktf-ex/lambda-example at main · nbekenov/cdktf-ex (github.com)  
 
-Cdktf Trials with Python | Aaron Addleman
+Cdktf Trials with Python | Aaron Addleman  
 
-Creating CloudWatch Alarms using Terraform CDK (Part 2) | Miyuru Tech Blog
+Creating CloudWatch Alarms using Terraform CDK (Part 2) | Miyuru Tech Blog  
 
-rand 'tech snippets'.hash.next: Terraform CDK Python: spin OCI (Oracle Cloud Infrastructure) VM (spareslant.blogspot.com)
+rand 'tech snippets'.hash.next: Terraform CDK Python: spin OCI (Oracle Cloud Infrastructure) VM (spareslant.blogspot.com)  
 
-rand 'tech snippets'.hash.next: Terraform CDK (spareslant.blogspot.com)
+rand 'tech snippets'.hash.next: Terraform CDK (spareslant.blogspot.com)  
 
--- multi-stack CDKTF
-rand 'tech snippets'.hash.next: Multi-Stack Terraform CDK (Python) in Oracle Cloud Infrastructure (OCI) (spareslant.blogspot.com)
+-- multi-stack CDKTF  
+rand 'tech snippets'.hash.next: Multi-Stack Terraform CDK (Python) in Oracle Cloud Infrastructure (OCI) (spareslant.blogspot.com)  
 
-wagtail-cloud/main.py at main · tomusher/wagtail-cloud (github.com)
-![image](https://user-images.githubusercontent.com/6020438/177660899-b116f58b-d876-4c05-a502-54570356a327.png)
+wagtail-cloud/main.py at main · tomusher/wagtail-cloud (github.com)  
+![image](https://user-images.githubusercontent.com/6020438/177660899-b116f58b-d876-4c05-a502-54570356a327.png)  
