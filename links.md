@@ -1,3 +1,20 @@
+07/09/2022 
+https://aws.amazon.com/blogs/mt/codify-your-best-practices-using-service-control-policies-part-1/  
+https://aws.amazon.com/blogs/mt/codify-your-best-practices-using-service-control-policies-part-2/  
+https://summitroute.com/blog/2020/03/25/aws_scp_best_practices/  
+https://asecure.cloud/l/scp/  
+https://github.com/Snozzberries/AWS-SCPs  
+https://aws-samples.github.io/aws-iam-permissions-guardrails/guardrails/scp-guardrails.html  
+https://getstarted.awsworkshop.io/00-intro/05-required-knowledge.html  
+https://getstarted.awsworkshop.io/01-up-front-tasks/01-review-requirements.html  
+https://github.com/aws-samples/aws-get-started-workshop  
+https://aws.amazon.com/solutions/implementations/serverless-transit-network-orchestrator/  
+
+Why is a network-prod account being used for a development network? You may be asking why we’re creating a network-prod AWS account to contain a development network. Since the expectation is that the underlying development network for your teams should be treated as a production quality resource, the development network should reside in a production-oriented AWS account. Note that the actual development workloads will reside in team development accounts and not in the network-prod account. Only the underlying VPC and subnets reside in the network-prod account. Since a network-dev account would be positioned for your cloud foundation team to experiment and develop new networking capabilities, we would not want to put a production quality network in a network-dev account. Short of creating a dedicated, network-prod-common-dev account, this guide currently co-locates the centrally managed development VPC in the network-prod account. If you desire further isolation, then it’s recommended that you create a distinct account such as network-prod-common-dev to hold the centrally managed development network.  
+
+https://getstarted.awsworkshop.io/03-dev/02-set-up-common-dev-network.html  
+https://getstarted.awsworkshop.io/03-dev/03-set-up-team-dev-guardrails.html  
+
 https://aws.amazon.com/solutions/implementations/aws-innovation-sandbox/  
 https://docs.aws.amazon.com/solutions/latest/aws-innovation-sandbox/welcome.html  
 https://github.com/awslabs/aws-innovation-sandbox  
