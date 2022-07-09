@@ -1,5 +1,5 @@
-07/09/2022 
--- Cloudfront, waf, api gateway,
+07/09/2022  
+-- Cloudfront, waf, api gateway  
 https://www.wellarchitectedlabs.com/security/300_labs/300_multilayered_api_security_with_cognito_and_waf/  
 -- build reusable components using service catalog in multi-account environment  
 https://service-catalog-tools-workshop.com/  
