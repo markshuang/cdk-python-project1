@@ -1,3 +1,13 @@
+https://aws.amazon.com/solutions/implementations/aws-innovation-sandbox/  
+https://docs.aws.amazon.com/solutions/latest/aws-innovation-sandbox/welcome.html  
+https://github.com/awslabs/aws-innovation-sandbox  
+https://aws.amazon.com/quickstart/terraform-modules/?quickstart-all.sort-by=item.additionalFields.sortDate&quickstart-all.sort-order=desc  
+https://aws.amazon.com/solutions/implementations/aws-perspective/?did=sl_card&trk=sl_card  
+https://aws.amazon.com/solutions/implementations/aws-firewall-mgr-automations-for-aws-orgs/?did=sl_card&trk=sl_card  
+https://aws.amazon.com/solutions/implementations/centralized-logging/?did=sl_card&trk=sl_card  
+https://aws.amazon.com/solutions/implementations/aws-devops-monitoring-dashboard/?did=sl_card&trk=sl_card  
+
+
 -- typescript projects  
 https://github.com/aws-samples/cdktf-aws-elb-cognito-auth  
 https://github.com/aws-samples/cdktf-aws-elb-cognito-auth/blob/main/src/app.ts  
