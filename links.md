@@ -1,8 +1,16 @@
 07/09/2022 
+-- build reusable components using service catalog in multi-account environment  
+https://service-catalog-tools-workshop.com/  
+https://awssecworkshops.com/  
+https://www.vpcendpointworkshop.com/  
+https://identity-round-robin.awssecworkshops.com/permission-boundaries-advanced/  
+https://aws.amazon.com/blogs/security/get-more-out-of-service-control-policies-in-a-multi-account-environment/  
+https://aws-samples.github.io/aws-iam-permissions-guardrails/  
 https://aws.amazon.com/blogs/mt/codify-your-best-practices-using-service-control-policies-part-1/  
 https://aws.amazon.com/blogs/mt/codify-your-best-practices-using-service-control-policies-part-2/  
 https://summitroute.com/blog/2020/03/25/aws_scp_best_practices/  
 https://asecure.cloud/l/scp/  
+https://github.com/trussworks/terraform-aws-org-scp/blob/master/main.tf  
 https://github.com/Snozzberries/AWS-SCPs  
 https://aws-samples.github.io/aws-iam-permissions-guardrails/guardrails/scp-guardrails.html  
 https://getstarted.awsworkshop.io/00-intro/05-required-knowledge.html  
