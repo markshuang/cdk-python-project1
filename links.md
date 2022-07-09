@@ -1,3 +1,12 @@
+-- typescript projects  
+https://github.com/aws-samples/cdktf-aws-elb-cognito-auth  
+https://github.com/aws-samples/cdktf-aws-elb-cognito-auth/blob/main/src/app.ts  
+https://github.com/Pocket/terraform-modules/tree/main/src/pocket  
+-- api gateway lambda dynamody, cognito  
+https://github.com/hadock/CDKTF-From-Zero-To-Hero  
+-- ec2 with nginx    
+https://github.com/kksudo/devoops-cdktf/tree/main/ec2-nginx
+
 ---- Can look at the terraform modules (typescript) at pocket site, use them as models to create corresponding ones in python   
 [terraform-modules/src/base at main · Pocket/terraform-modules (github.com) ](https://github.com/Pocket/terraform-modules/tree/main/src/base)   
 
