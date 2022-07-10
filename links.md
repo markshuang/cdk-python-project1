@@ -1,3 +1,13 @@
+07/10/2022
+-- apprunner in multi-region  
+https://github.com/aws-samples/apprunner-multiregion   
+-- aws integration and automation repo  
+https://github.com/aws-ia  
+https://github.com/orgs/aws-ia/repositories?type=all  
+https://aws.amazon.com/blogs/mt/introducing-amazon-eks-observability-accelerator/  
+-- aws blogs on terraform  
+https://aws.amazon.com/search/?searchQuery=terraform#facet_type=blogs&limit=25&page=1&sortResults=modification_date%20desc  
+
 07/09/2022  
 -- Cloudfront, waf, api gateway  
 https://www.wellarchitectedlabs.com/security/300_labs/300_multilayered_api_security_with_cognito_and_waf/  
