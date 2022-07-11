@@ -39,6 +39,15 @@ https://aws.amazon.com/blogs/mt/building-a-fully-automated-dow-jones-asset-track
 https://aws.amazon.com/blogs/startups/using-aws-to-build-tools-that-will-design-tomorrows-green-infrastructure/  
 -- Integrating Existing Applications Into DevOps with AWS Amplify | Front-End Web & Mobile  
 https://aws.amazon.com/blogs/mobile/4707-2/  
+https://aws.amazon.com/blogs/startups/from-zero-to-eks-with-terraform-and-helm/  
+-- eks blueprint terraform  
+https://aws.amazon.com/blogs/containers/bootstrapping-clusters-with-eks-blueprints/  
+-- windows workload eks terraform  
+https://aws.amazon.com/blogs/containers/running-windows-workloads-on-a-private-eks-cluster/  
+-- multi-cluster eks terrform  
+https://aws.amazon.com/blogs/containers/onfidos-journey-to-a-multi-cluster-amazon-eks-architecture/  
+https://aws.amazon.com/blogs/containers/how-to-automate-amazon-eks-preventative-controls-in-ci-cd-using-cdk-and-opa-conftest/  
+https://aws.amazon.com/blogs/containers/setting-up-a-bottlerocket-managed-node-group-on-amazon-eks-with-terraform/  
 
 
 07/09/2022  
