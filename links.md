@@ -7,6 +7,39 @@ https://github.com/orgs/aws-ia/repositories?type=all
 https://aws.amazon.com/blogs/mt/introducing-amazon-eks-observability-accelerator/  
 -- aws blogs on terraform  
 https://aws.amazon.com/search/?searchQuery=terraform#facet_type=blogs&limit=25&page=1&sortResults=modification_date%20desc  
+https://aws.amazon.com/blogs/security/top-2021-aws-service-launches-security-professionals-should-review-part-2/  
+https://aws.amazon.com/blogs/developer/provision-aws-infrastructure-using-terraform-by-hashicorp-an-example-of-web-application-logging-customer-data/  
+https://github.com/aws-samples/aws-ingesting-click-logs-using-terraform  
+https://aws.amazon.com/blogs/devops/multi-region-terraform-deployments-with-aws-codepipeline-using-terraform-built-ci-cd/  
+https://aws.amazon.com/blogs/devops/monitor-aws-resources-created-by-terraform-in-amazon-devops-guru-using-tfdevops/  
+https://github.com/stacklet/tfdevops  
+https://aws.amazon.com/blogs/devops/aws-config-rdk-deploying-the-custom-rules-using-the-terraform/  
+https://aws.amazon.com/blogs/devops/secure-and-analyse-your-terraform-code-using-aws-codecommit-aws-codepipeline-aws-codebuild-and-tfsec/  
+https://aws.amazon.com/blogs/devops/continuous-compliance-workflow-for-infrastructure-as-code-part-2/  
+--using terraform to create serverless jenkins on aws fargate
+https://aws.amazon.com/blogs/devops/building-a-serverless-jenkins-environment-on-aws-fargate/  
+-- corporate DevOps lesson Cloud Platform team, very similar to Lazard 
+https://aws.amazon.com/blogs/devops/transforming-devops-for-a-fintech-on-aws/  
+https://aws.amazon.com/blogs/compute/implementing-attribute-based-instance-type-selection-using-terraform/  
+-- terraform autoscaling for ec2  
+https://aws.amazon.com/blogs/compute/implementing-autoscaling-for-ec2-mac-instances/  
+-- terraform Ec2 refresh
+https://aws.amazon.com/blogs/compute/introducing-instance-refresh-for-ec2-auto-scaling/  
+-- aws config terraform  
+https://aws.amazon.com/blogs/mt/how-to-deploy-aws-config-conformance-packs-using-terraform/  
+-- vpc endpoint, cloudwatch in terraform  
+https://aws.amazon.com/blogs/mt/monitor-network-throughput-of-interface-vpc-endpoints-using-amazon-cloudwatch/  
+-- aws organization, aws config, terraform  
+https://aws.amazon.com/blogs/mt/aws-organizations-aws-config-and-terraform/  
+-- ssm patching, terraform  
+https://aws.amazon.com/blogs/mt/software-patching-with-aws-systems-manager/  
+-- cmdb asset, sqs, lambda, dynamoDB, jenkins for deployment, terraform  
+https://aws.amazon.com/blogs/mt/building-a-fully-automated-dow-jones-asset-tracking-system-on-aws/  
+-- step function for orchestrating blue/green eks deployment, 
+https://aws.amazon.com/blogs/startups/using-aws-to-build-tools-that-will-design-tomorrows-green-infrastructure/  
+-- Integrating Existing Applications Into DevOps with AWS Amplify | Front-End Web & Mobile  
+https://aws.amazon.com/blogs/mobile/4707-2/  
+
 
 07/09/2022  
 -- Cloudfront, waf, api gateway  
