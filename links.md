@@ -16,9 +16,9 @@ https://github.com/stacklet/tfdevops
 https://aws.amazon.com/blogs/devops/aws-config-rdk-deploying-the-custom-rules-using-the-terraform/  
 https://aws.amazon.com/blogs/devops/secure-and-analyse-your-terraform-code-using-aws-codecommit-aws-codepipeline-aws-codebuild-and-tfsec/  
 https://aws.amazon.com/blogs/devops/continuous-compliance-workflow-for-infrastructure-as-code-part-2/  
---using terraform to create serverless jenkins on aws fargate
+--using terraform to create serverless jenkins on aws fargate  
 https://aws.amazon.com/blogs/devops/building-a-serverless-jenkins-environment-on-aws-fargate/  
--- corporate DevOps lesson Cloud Platform team, very similar to Lazard 
+-- corporate DevOps lesson Cloud Platform team, very similar to Lazard  
 https://aws.amazon.com/blogs/devops/transforming-devops-for-a-fintech-on-aws/  
 https://aws.amazon.com/blogs/compute/implementing-attribute-based-instance-type-selection-using-terraform/  
 -- terraform autoscaling for ec2  
