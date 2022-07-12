@@ -1,3 +1,18 @@
+07/11/2022  
+permissions boundary  
+https://aws.amazon.com/blogs/security/use-tags-to-manage-and-secure-access-to-additional-types-of-iam-resources/  
+https://aws.amazon.com/blogs/apn/how-cleardata-enforces-data-locality-with-aws-iam-permission-boundaries/  
+https://aws.amazon.com/blogs/security/delegate-permission-management-to-developers-using-iam-permissions-boundaries/  
+https://aws.amazon.com/blogs/security/how-to-use-trust-policies-with-iam-roles/  
+https://aws.amazon.com/blogs/apn/easily-delegate-responsibilities-using-aws-permissions-boundaries-and-kion/  
+https://aws.amazon.com/blogs/security/how-to-implement-the-principle-of-least-privilege-with-cloudformation-stacksets/  
+https://aws.amazon.com/blogs/architecture/field-notes-how-factset-balances-developer-velocity-with-governance-using-aws-iam/  
+https://aws.amazon.com/blogs/devops/cdk-corner-march-2021/  
+https://aws.amazon.com/blogs/compute/operating-serverless-at-scale-keeping-control-of-resources-part-3/  
+https://aws.amazon.com/blogs/security/how-to-control-access-to-aws-resources-based-on-aws-account-ou-or-organization/  
+
+
+
 07/10/2022
 -- apprunner in multi-region  
 https://github.com/aws-samples/apprunner-multiregion   
