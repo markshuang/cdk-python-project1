@@ -1,4 +1,9 @@
 07/13/2022  
+-- windows powershell in userdata  
+https://aws.amazon.com/blogs/infrastructure-and-automation/logging-windows-amazon-ec2-userdata-activity-in-amazon-cloudwatch/  
+https://aws.amazon.com/blogs/developer/deploy-an-amazon-ecs-cluster-running-windows-server-with-aws-tools-for-powershell-part-1/  
+https://aws.amazon.com/blogs/developer/installing-scheduled-tasks-on-ec2-windows-instances/  
+
 -- terraform eks helm  
 https://aws.amazon.com/blogs/startups/from-zero-to-eks-with-terraform-and-helm/  
 https://github.com/hashicorp/terraform-provider-aws/tree/main/examples/eks-getting-started  
