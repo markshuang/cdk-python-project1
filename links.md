@@ -6,6 +6,9 @@ https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/
 https://aws.amazon.com/blogs/architecture/category/application-services/amazon-api-gateway-application-services/  
 https://aws.amazon.com/blogs/architecture/using-api-gateway-as-a-single-entry-point-for-web-applications-and-api-microservices/  
 https://aws.amazon.com/blogs/architecture/things-to-consider-when-you-build-rest-apis-with-amazon-api-gateway/  
+https://aws.amazon.com/blogs/compute/category/mobile-services/amazon-api-gateway/  
+https://aws.amazon.com/blogs/compute/performing-canary-deployments-for-service-integrations-with-amazon-api-gateway/  
+https://aws.amazon.com/blogs/compute/troubleshooting-amazon-api-gateway-with-enhanced-observability-variables/  
 
 07/11/2022  
 permissions boundary  
