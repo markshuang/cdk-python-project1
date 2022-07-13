@@ -12,6 +12,10 @@ https://stackoverflow.com/questions/67120939/executing-powershell-script-on-remo
 https://skundunotes.com/2021/11/07/working-with-aws-ec2-user-data-and-terraform/  
 https://github.com/kunduso/ec2-userdata-terraform/tree/add-userdata/user_data  
 
+https://github.com/andreswebs/terraform-aws-ec2-userdata-ad-join/tree/main/tpl  
+https://gmusumeci.medium.com/how-to-deploy-a-windows-server-ec2-instance-in-aws-using-terraform-dd86a5dbf731  
+
+powershell  "userdata" terraform  on google  
 
 -- terraform eks helm  
 https://aws.amazon.com/blogs/startups/from-zero-to-eks-with-terraform-and-helm/  
