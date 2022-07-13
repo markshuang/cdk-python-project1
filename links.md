@@ -22,6 +22,36 @@ Making this definitive choice will save the team a lot of engineering time that 
 
 So, if you’ve embraced a multi-service strategy with AWS as your anchor cloud provider, ECS is almost certainly a better choice. The only challenge with ECS is that it’s harder to find and hire talent because ECS is not as universal as Kubernetes or EKS.  
 
+https://cast.ai/blog/aws-eks-vs-ecs-vs-fargate-where-to-manage-your-kubernetes/  
+ECS is really simple to deploy. After all, it was designed to be a simple API for creating containerized workloads without any complex abstractions. You get no control plane, so once your cluster is set up, you can configure and deploy tasks directly from the AWS management console. 
+
+Deploying clusters on EKS is a bit more complex and requires expert configuration. You need to configure and deploy pods via Kubernetes first because EKS is just another layer for creating K8s clusters on AWS. 
+
+So compared to ECS, you need more expertise and operational knowledge to deploy and manage applications on EKS.  
+
+https://sysdig.com/learn-cloud-native/kubernetes-security/aws-eks-with-and-without-fargate-understanding-the-differences/  
+Let’s start by defining the two main services that Amazon offers for deploying containerized applications:
+
+Elastic Kubernetes Service (EKS): EKS is a container deployment service based on open source Kubernetes. You could also call it a Kubernetes distribution or Kubernetes-as-a-Service.
+Elastic Container Engine (ECS): ECS is a container deployment service powered by a proprietary container orchestration engine that Amazon developed itself. AWS built ECS back in the days of the “orchestrator wars,” before it was clear that Kubernetes would become, by far and away, the leading container orchestration platform.
+Both of these services let you do basically the same thing, albeit in slightly different ways: deploy containerized applications using an orchestration layer that is hosted in the AWS cloud. In most cases, ECS and EKS also rely on infrastructure that is hosted by AWS.
+
+(The exception is if you use EKS Anywhere or if you run ECS or EKS via AWS Outposts, AWS’s hybrid cloud framework. In these situations, you can use private infrastructure to host your applications, even though the orchestration control plane would remain hosted in the AWS public cloud.)  
+
+-- fargte or not  
+Fargate gives you less control in various ways. Not only do you not control cluster sizing, but you also can’t specify configuration variables like HostPort and HostNetwork for containers running in Fargate mode. You also can’t run containers in privileged mode, and you can’t configure DaemonSets.
+
+In general, then, Fargate makes most sense when you don’t need fine-tuned control over how your containers run. If you need as much control as possible, use EKS in standard mode.  
+
+
+https://medium.com/@Nautilus_Technologies/ecs-vs-eks-vs-fargate-what-to-choose-in-2022-6fd8c65fbcd8  
+
+EKS
+
+If you are using Kubernetes already and your team wants to deploy their Kubernetes cluster on AWS infrastructure.
+EKS is the right choice if you want to migrate your workloads from AWS to a different cloud provider in the future.
+If you want a secure, highly available container service with observability across all Kubernetes deployment, EKS is a better option.   
+
 
 07/12/2022  
 -- api gateway integration  
