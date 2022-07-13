@@ -1,3 +1,8 @@
+07/13/2022  
+-- terraform eks helm  
+https://aws.amazon.com/blogs/startups/from-zero-to-eks-with-terraform-and-helm/  
+https://github.com/hashicorp/terraform-provider-aws/tree/main/examples/eks-getting-started  
+
 07/12/2022  
 -- api gateway integration  
 https://aws.amazon.com/blogs/architecture/use-direct-service-integrations-to-optimize-your-architecture/  
@@ -25,7 +30,7 @@ https://aws.amazon.com/blogs/security/how-to-control-access-to-aws-resources-bas
 
 
 
-07/10/2022
+07/10/2022   
 -- apprunner in multi-region  
 https://github.com/aws-samples/apprunner-multiregion   
 -- aws integration and automation repo  
@@ -50,7 +55,7 @@ https://aws.amazon.com/blogs/devops/transforming-devops-for-a-fintech-on-aws/
 https://aws.amazon.com/blogs/compute/implementing-attribute-based-instance-type-selection-using-terraform/  
 -- terraform autoscaling for ec2  
 https://aws.amazon.com/blogs/compute/implementing-autoscaling-for-ec2-mac-instances/  
--- terraform Ec2 refresh
+-- terraform Ec2 refresh  
 https://aws.amazon.com/blogs/compute/introducing-instance-refresh-for-ec2-auto-scaling/  
 -- aws config terraform  
 https://aws.amazon.com/blogs/mt/how-to-deploy-aws-config-conformance-packs-using-terraform/  
