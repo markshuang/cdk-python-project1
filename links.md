@@ -4,6 +4,13 @@ https://aws.amazon.com/blogs/infrastructure-and-automation/logging-windows-amazo
 https://aws.amazon.com/blogs/developer/deploy-an-amazon-ecs-cluster-running-windows-server-with-aws-tools-for-powershell-part-1/  
 https://aws.amazon.com/blogs/developer/installing-scheduled-tasks-on-ec2-windows-instances/  
 https://docs.aws.amazon.com/AWSEC2/latest/WindowsGuide/ec2-windows-user-data.html  
+-- terraform userdata  
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance#user_data  
+https://stackoverflow.com/questions/67120939/executing-powershell-script-on-remote-windows-ec2-instance-in-terraform  
+
+-- example of using powershell on userdata for windows instance  
+https://skundunotes.com/2021/11/07/working-with-aws-ec2-user-data-and-terraform/  
+https://github.com/kunduso/ec2-userdata-terraform/tree/add-userdata/user_data  
 
 
 -- terraform eks helm  
