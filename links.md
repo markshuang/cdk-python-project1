@@ -8,6 +8,20 @@ https://github.com/aws-samples/amazon-autoscaling-mac1metal-ec2-with-terraform/b
 https://github.com/aws-samples/cdktf-aws-elb-cognito-auth/blob/main/src/app.ts  
 -- api gateway, cognito, dynamoDB, lambda    
 https://github.com/hadock/CDKTF-From-Zero-To-Hero/blob/main/Assets/Demo/applications/backends/myapp1/index.ts  
+-- ecs vs eks  
+https://www.cloudzero.com/blog/ecs-vs-eks  
+So, if you are building containerized systems where the containerized part is just one piece of a broader AWS ecosystem, ECS is the logical choice. If you’ve built a system using a lot of AWS platform services, such as RDS, SNS, S3, SQS, Eventridge, DynamoDB, and need some additional capabilities, you may want to use ECS.
+
+However, if you’re trying to isolate all your applications, logic, and systems so that you have maximum portability, then EKS is the tool to consider.
+
+Companies often choose EKS over ECS because they fear cloud lock-in. And they believe that if they build their applications using only the building blocks provided by Kubernetes, that they will have maximum portability. In other words, if there’s an issue with their cloud provider, they can pick up all their containers and move to a different cloud provider.
+
+However, the most cost-effective, efficient, and well-architected systems are the ones that instead treat the cloud provider as the operating system and they make a clear commitment to the platform.
+
+Making this definitive choice will save the team a lot of engineering time that would have been otherwise spent on pursuing a multi-cloud strategy. The time saved would allow them to build functionality faster and deliver more features to market. See this blog for a more detailed look comparing multi-service and multi-cloud strategies.
+
+So, if you’ve embraced a multi-service strategy with AWS as your anchor cloud provider, ECS is almost certainly a better choice. The only challenge with ECS is that it’s harder to find and hire talent because ECS is not as universal as Kubernetes or EKS.  
+
 
 07/12/2022  
 -- api gateway integration  
