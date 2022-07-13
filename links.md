@@ -1,3 +1,12 @@
+07/12/2022  
+-- api gateway integration  
+https://aws.amazon.com/blogs/architecture/use-direct-service-integrations-to-optimize-your-architecture/  
+https://aws.amazon.com/premiumsupport/knowledge-center/api-gateway-application-load-balancers/  
+https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/direct-integrations.html  
+https://aws.amazon.com/blogs/architecture/category/application-services/amazon-api-gateway-application-services/  
+https://aws.amazon.com/blogs/architecture/using-api-gateway-as-a-single-entry-point-for-web-applications-and-api-microservices/  
+https://aws.amazon.com/blogs/architecture/things-to-consider-when-you-build-rest-apis-with-amazon-api-gateway/  
+
 07/11/2022  
 permissions boundary  
 https://aws.amazon.com/blogs/security/use-tags-to-manage-and-secure-access-to-additional-types-of-iam-resources/  
