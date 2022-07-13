@@ -4,6 +4,10 @@ https://aws.amazon.com/blogs/startups/from-zero-to-eks-with-terraform-and-helm/
 https://github.com/hashicorp/terraform-provider-aws/tree/main/examples/eks-getting-started  
 -- ec2, autoscaling, lifecycle   
 https://github.com/aws-samples/amazon-autoscaling-mac1metal-ec2-with-terraform/blob/main/terraform-aws-ec2-mac/main.tf  
+-- security group, autoscaling, elb, target group, iam role, congnito, custom resource  
+https://github.com/aws-samples/cdktf-aws-elb-cognito-auth/blob/main/src/app.ts  
+-- api gateway, cognito, dynamoDB, lambda    
+https://github.com/hadock/CDKTF-From-Zero-To-Hero/blob/main/Assets/Demo/applications/backends/myapp1/index.ts  
 
 07/12/2022  
 -- api gateway integration  
