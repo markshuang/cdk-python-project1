@@ -2,6 +2,8 @@
 -- terraform eks helm  
 https://aws.amazon.com/blogs/startups/from-zero-to-eks-with-terraform-and-helm/  
 https://github.com/hashicorp/terraform-provider-aws/tree/main/examples/eks-getting-started  
+-- ec2, autoscaling, lifecycle   
+https://github.com/aws-samples/amazon-autoscaling-mac1metal-ec2-with-terraform/blob/main/terraform-aws-ec2-mac/main.tf  
 
 07/12/2022  
 -- api gateway integration  
