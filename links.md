@@ -3,6 +3,8 @@
 https://awesome-aws-workshops.com/#enterprise-customers  
 https://workshops.aws/  
 
+-- api gateway  
+https://github.com/Pocket/terraform-modules/blob/main/src/pocket/PocketApiGatewayLambdaIntegration.ts  
 
 -- windows powershell in userdata  
 https://aws.amazon.com/blogs/infrastructure-and-automation/logging-windows-amazon-ec2-userdata-activity-in-amazon-cloudwatch/  
