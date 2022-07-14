@@ -1,4 +1,9 @@
 07/13/2022  
+-- aws workshop  
+https://awesome-aws-workshops.com/#enterprise-customers  
+https://workshops.aws/  
+
+
 -- windows powershell in userdata  
 https://aws.amazon.com/blogs/infrastructure-and-automation/logging-windows-amazon-ec2-userdata-activity-in-amazon-cloudwatch/  
 https://aws.amazon.com/blogs/developer/deploy-an-amazon-ecs-cluster-running-windows-server-with-aws-tools-for-powershell-part-1/  
