@@ -1,3 +1,9 @@
+07/14/2022  
+-- s3 web site, cloudfront and distribution  
+https://github.com/Maed223/cdktf-integration-serverless-python-example/blob/main/frontend/index.py  
+-- api, lambda backend  
+https://github.com/Maed223/cdktf-integration-serverless-python-example/blob/main/posts/api/index.py  
+
 07/13/2022  
 -- aws workshop  
 https://awesome-aws-workshops.com/#enterprise-customers  
