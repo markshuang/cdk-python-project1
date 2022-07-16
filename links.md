@@ -11,7 +11,9 @@ https://scripting4ever.wordpress.com/2020/11/15/automate-ssh-key-generation-and-
 https://github.com/kujalk/Terraform-EC2-SSH/blob/main/main.tf  
 -- create ec2 with nginx in terraform  
 https://awstip.com/how-to-create-an-nginx-instance-in-aws-using-terraform-feb6af12749a  
-
+https://www.clickittech.com/devops/terraform-best-practices/  
+https://opensourcelibs.com/libs/terraform-modules  
+https://opensourcelibs.com/lib/tf_aws_bastion_s3_keys  
 
 07/14/2022  
 -- s3 web site, cloudfront and distribution  
