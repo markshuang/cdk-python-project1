@@ -1,3 +1,45 @@
+07/16/2022  
+--  good example of creating app using cdktf in typescript  
+https://github.com/Pocket/recommendation-api/blob/main/.aws/src/main.ts  
+-- can use cdktf_cdktf_provider_aws or "import awsprovider" to search in github  
+https://github.com/search?l=Python&p=2&q=%22import+AwsProvider%22&type=Code  
+-- using TerraformHclModule  
+https://github.com/peytoncasper/tf-cdk-examples/blob/abe661ea4a162b526705ce5f7949bbf9cecc435c/post-provision-steps/main.py  
+https://github.com/G4rr/server/blob/b3b75016fbc10ed6928e2af07da57fc86c2ab0dd/api.py  
+-- aws organization, sso
+https://github.com/defn/cloud/blob/6b1da436602d969facb879f4041a0eb77e1c7164/src/defn/aws/organizations.py  
+-- kms, key policy  
+https://github.com/ahmadalibagheri/cdktf-python-aws-kms/blob/f29e6237265c3a1ec60db58275bfa9eaa3185951/main.py  
+-- cross-stack  
+https://github.com/dhmistry3/cdktf-cross-stack  
+-- vpc, subnet, security groups, ec2 with inline user data, db instance, alb, target group, alarm    
+https://github.com/Devsharma27/cdktf/blob/afd1ccbcd1c545bdf3a8aef382e52e3d1800951f/matricfilter.py  
+-- eks, vpc,  
+https://github.com/celeguim/cdktf-aws-python/blob/f43372ba2524e3df79976a883d243d70dd956490/cdktf-aws-python/main.py  
+-- docker provider  
+https://github.com/sriazcloud/Terraform-AllClouds-kubernetes/blob/267d2b118547d70bbed90391723e2ec5566b6a18/examples/python/docker/main.py  
+-- kubenetes provider   "terraformProviders": ["kubernetes@~> 1.11.3"],  
+https://github.com/sriazcloud/Terraform-AllClouds-kubernetes/blob/267d2b118547d70bbed90391723e2ec5566b6a18/examples/python/kubernetes/main.py  
+-- vpc, cloudfront, s3, acm, codebuild, codepipeline, r53, iam,  waf  
+https://github.com/gonzape27/cdktf-boiler-template/tree/cef76883a382edb74e6f3edb5f7ee95100973a48/functions  
+-- helm, kubenetes  
+https://github.com/pavan8855/enthire/blob/e35565fd8f0f0201c1f5cbe599ba50c4230c7948/main.py  
+https://github.com/yobooooi/tdd-terraform-cdk/blob/d251a8d354e7232f66318915e0e600fad32cd41b/main.py  
+-- dynamodb replication  
+https://github.com/Kshitiz-Arya/DynamoDB-replication/tree/c5920bbb06cf4132427aa2163553cad1e71e8f7e  
+-- aws lightsail  
+https://github.com/MongoExpUser/UNEMY-Stack-on-AWS-Lightsail/tree/fbf449aa9c854337ad782733fd823f7a6e0ffd62  
+
+-- typescript cdktf  
+-- vpc, cloudfront, r53, s3, acm, 
+https://github.com/zaqqaz/terraform-typescript-frontend-infrastructure/tree/71cbc15b23f8d482bb09f8e39ee22ae990f66a09/terraform/src  
+-- tlsprovider, certificate, alb, target, ecs    
+https://github.com/vaspoz/pgadmin-aws/blob/0946294e6d2d3b204c7fb739f274141618c592cf/infra_resources/pgadmin_alb.ts  
+-- tlsprovider, privatekey  
+https://github.com/mkm29/cdktf-ec2/blob/a6258742733b2b7636a4413bf69c367617e03ee1/main.ts  
+-- python script, saving private key to file using local provider    
+https://github.com/spareslant/oci_multi_stack_terraform_cdk_python_v2/blob/76e05495ef46c7b23c84c1d772f886d6eeb38166/systemsAndApps.py  
+
 07/15/2022   
 -- ssh using terraform  
 https://docs.microsoft.com/en-us/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure  
