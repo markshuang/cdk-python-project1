@@ -1,4 +1,7 @@
 07/16/2022  
+
+--  eks, tls certificate, 8ks,   
+https://github.com/OlivierPT/terraform/blob/22991aaee42c5bcd1791e773eac0cc6b82095b68/cdktf-aws-eks/infra/main.ts  
 --  good example of creating app using cdktf in typescript  
 https://github.com/Pocket/recommendation-api/blob/main/.aws/src/main.ts  
 -- can use cdktf_cdktf_provider_aws or "import awsprovider" to search in github  
