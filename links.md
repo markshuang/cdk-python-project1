@@ -1,3 +1,10 @@
+07/15/2022   
+-- ssh using terraform  
+https://docs.microsoft.com/en-us/azure/developer/terraform/create-linux-virtual-machine-with-infrastructure  
+https://www.phillipsj.net/posts/generating-ssh-keys-with-terraform/  
+https://stackoverflow.com/questions/67389324/create-a-key-pair-and-download-the-pem-file-with-terraform-aws  
+https://github.com/cloudposse/terraform-tls-ssh-key-pair/blob/master/main.tf  
+
 07/14/2022  
 -- s3 web site, cloudfront and distribution  
 https://github.com/Maed223/cdktf-integration-serverless-python-example/blob/main/frontend/index.py  
