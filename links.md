@@ -4,6 +4,11 @@ https://docs.microsoft.com/en-us/azure/developer/terraform/create-linux-virtual-
 https://www.phillipsj.net/posts/generating-ssh-keys-with-terraform/  
 https://stackoverflow.com/questions/67389324/create-a-key-pair-and-download-the-pem-file-with-terraform-aws  
 https://github.com/cloudposse/terraform-tls-ssh-key-pair/blob/master/main.tf  
+https://stackoverflow.com/questions/59473690/how-to-extract-sensitive-output-variables-in-terraform  
+https://faun.pub/how-to-create-ssh-keys-with-terraform-a615dfc631c1  
+https://www.linuxfixes.com/2022/06/solved-how-do-i-create-ssh-key-in.html   
+https://scripting4ever.wordpress.com/2020/11/15/automate-ssh-key-generation-and-ec2-deployment-using-terraform-in-windows-environment/  
+https://github.com/kujalk/Terraform-EC2-SSH/blob/main/main.tf  
 
 07/14/2022  
 -- s3 web site, cloudfront and distribution  
