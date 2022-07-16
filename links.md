@@ -4,6 +4,10 @@ https://github.com/Maed223/cdktf-integration-serverless-python-example/blob/main
 -- api, lambda backend, lambda pacakge  
 https://github.com/Maed223/cdktf-integration-serverless-python-example/blob/main/posts/api/index.py  
 
+-- cdk solutions patterns  
+https://docs.aws.amazon.com/solutions/latest/constructs/welcome.html  
+https://github.com/awslabs/aws-solutions-constructs/tree/main/source/patterns/%40aws-solutions-constructs  
+
 07/13/2022  
 -- aws workshop  
 https://awesome-aws-workshops.com/#enterprise-customers  
