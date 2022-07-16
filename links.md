@@ -9,6 +9,9 @@ https://faun.pub/how-to-create-ssh-keys-with-terraform-a615dfc631c1
 https://www.linuxfixes.com/2022/06/solved-how-do-i-create-ssh-key-in.html   
 https://scripting4ever.wordpress.com/2020/11/15/automate-ssh-key-generation-and-ec2-deployment-using-terraform-in-windows-environment/  
 https://github.com/kujalk/Terraform-EC2-SSH/blob/main/main.tf  
+-- create ec2 with nginx in terraform  
+https://awstip.com/how-to-create-an-nginx-instance-in-aws-using-terraform-feb6af12749a  
+
 
 07/14/2022  
 -- s3 web site, cloudfront and distribution  
