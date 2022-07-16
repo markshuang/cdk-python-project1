@@ -1,5 +1,14 @@
 07/16/2022  
 
+-- api gateway, lambda from pocket  
+https://github.com/Pocket/fxa-webhook-proxy/blob/09a9ea0e6980a919615d9c46c5f60a84296be8d9/.aws/src/apiGateway.ts  
+-- event bridge  
+https://github.com/Pocket/pocket-event-bridge/tree/main/.aws/src  
+--  cdk8s  
+https://cdk8s.io/docs/latest/plus/container/  
+--   
+https://github.com/stackmate-io/stackmate/tree/6934617e974cb08c6a384cf568111e11affe5ef6   
+
 --  eks, tls certificate, 8ks,   
 https://github.com/OlivierPT/terraform/blob/22991aaee42c5bcd1791e773eac0cc6b82095b68/cdktf-aws-eks/infra/main.ts  
 --  good example of creating app using cdktf in typescript  
