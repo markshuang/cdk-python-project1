@@ -1,4 +1,9 @@
 07/16/2022  
+-- aws cdk solutions patterns, default behavior, helper for various constructs  
+https://github.com/awslabs/aws-solutions-constructs/tree/33e8f17a1d1df5be78882a8a59b54d689fea1e82/source/patterns/%40aws-solutions-constructs/core/lib  
+
+-- deepmerge in python  
+https://github.com/febus982/cdk-platform/blob/e72317c2594cb17dfb369a0bc10e3ee6fe075d47/platform/apps/abstract/base_app.py  
 
 -- api gateway, lambda from pocket  
 https://github.com/Pocket/fxa-webhook-proxy/blob/09a9ea0e6980a919615d9c46c5f60a84296be8d9/.aws/src/apiGateway.ts  
