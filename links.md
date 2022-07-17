@@ -1,6 +1,12 @@
 07/16/2022  
 -- aws cdk solutions patterns, default behavior, helper for various constructs  
 https://github.com/awslabs/aws-solutions-constructs/tree/33e8f17a1d1df5be78882a8a59b54d689fea1e82/source/patterns/%40aws-solutions-constructs/core/lib  
+https://github.com/Team-FakeNews/CTFKit/blob/develop/ctfkit/terraform/__init__.py   
+https://github.com/philschmid/cdk-samples/blob/6a37732594b8c8d87b6f958605b337cab2ede900/cdktf/README.md  
+-- using cloudposse module in cdktf  
+ "terraformModules": [  
+    "cloudposse/elastic-beanstalk-application/aws@~> 0.11.0"  
+  ],  
 
 -- deepmerge in python  
 https://github.com/febus982/cdk-platform/blob/e72317c2594cb17dfb369a0bc10e3ee6fe075d47/platform/apps/abstract/base_app.py  
