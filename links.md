@@ -7,6 +7,9 @@ https://github.com/philschmid/cdk-samples/blob/6a37732594b8c8d87b6f958605b337cab
  "terraformModules": [  
     "cloudposse/elastic-beanstalk-application/aws@~> 0.11.0"  
   ],  
+-- cloudposse modules    
+https://github.com/cloudposse/terraform-aws-components/tree/master/modules/  
+
 
 -- deepmerge in python  
 https://github.com/febus982/cdk-platform/blob/e72317c2594cb17dfb369a0bc10e3ee6fe075d47/platform/apps/abstract/base_app.py  
