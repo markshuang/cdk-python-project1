@@ -1,3 +1,21 @@
+07/21/2022   
+https://github.com/workflows-sh/do-k8s  
+from constructs import Construct  
+from cdktf import App, TerraformStack, RemoteBackend, NamedRemoteWorkspace  
+from app_stacks.stack_base import BaseStack  
+
+class StackRemoteBackend(BaseStack):  
+    def __init__(self, scope: Construct, ns: str,   
+                 organization: str,  
+                 workspace_name: str):  
+        super().__init__(scope, ns)  
+        RemoteBackend(self,  
+                      organization= organization,  
+                      hostname="app.terraform.io",  
+                      # name of workspace needs to be passed from subclass  
+                      workspaces=NamedRemoteWorkspace(workspace_name),  
+        )  
+
 07/16/2022  
 -- aws cdk solutions patterns, default behavior, helper for various constructs  
 https://github.com/awslabs/aws-solutions-constructs/tree/33e8f17a1d1df5be78882a8a59b54d689fea1e82/source/patterns/%40aws-solutions-constructs/core/lib  
