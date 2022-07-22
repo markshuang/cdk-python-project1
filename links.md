@@ -1,4 +1,16 @@
 07/21/2022   
+-- codepipeline  
+https://github.com/abdelilah/cdktf-aws-ecs-app/blob/de6ca38a4a8b4acf61f92ad9e0a8aa1aa622f3e4/resources/ecs-codepipeline.ts  
+https://github.com/shazi7804/terraform-cdk-examples/blob/73eba6e24f2d7b1ed4aa674ea034a8545e94f2d0/lib/aws/deployment.ts  
+-- deploy azure kubernetes  
+https://github.com/shazi7804/cdktf-aws-deployment-anywhere/blob/74180a8b7d1c25b386a4dffbff9377ed1f4fc14a/lib/aws-deployment.ts  
+-- pocket codepipeline  
+https://github.com/Pocket/data-flows/blob/746c28963cb545ea39a3ff17eda8f4ec7cf3d537/.aws/src/DataFlowsCodePipeline.ts  
+-- webhook  
+https://github.com/sthuck/duckduckstay/blob/6efb08ad23ef6c715598990253e07c376405bce0/terraform/build-env.ts  
+https://github.com/tractr/stack/blob/9d7aafc4e9bce14de3e3d4a5904413914b15b0d8/libs/terraform/component/deployment/src/lib/deployment-pipeline.component.ts  
+https://github.com/Pocket/terraform-modules/blob/ec78c378c6ae0c61578d2d298203c6244a447b55/src/pocket/PocketECSCodePipeline.ts  
+
 https://github.com/workflows-sh/do-k8s  
 from constructs import Construct  
 from cdktf import App, TerraformStack, RemoteBackend, NamedRemoteWorkspace  
