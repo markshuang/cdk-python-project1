@@ -1,3 +1,12 @@
+07/23/2022  
+terraform agent's docker file  
+https://github.com/Mindera/docker-terraform-aws-agent/blob/master/Dockerfile  
+https://github.com/markjgardner/vsts-terraform-agent/blob/master/Dockerfile  
+https://docs.dogfood-stage.com/guides/working-with-code/tfc-integration/  
+https://learn.hashicorp.com/tutorials/terraform/automate-terraform?in=terraform/automation&utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS  
+https://learn.hashicorp.com/tutorials/terraform/tfe-provider-run-triggers?in=terraform/automation  
+https://github.com/hashicorp/learn-terraform-tfe-provider-run-triggers/blob/main/admin.tf  
+
 07/21/2022   
 -- codepipeline  
 https://github.com/abdelilah/cdktf-aws-ecs-app/blob/de6ca38a4a8b4acf61f92ad9e0a8aa1aa622f3e4/resources/ecs-codepipeline.ts  
