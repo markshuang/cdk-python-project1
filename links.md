@@ -1,4 +1,6 @@
 07/23/2022  
+-- aws samples that contains terraform  
+https://github.com/orgs/aws-samples/repositories?q=terraform&type=all&language=&sort=  
 terraform agent's docker file  
 https://github.com/Mindera/docker-terraform-aws-agent/blob/master/Dockerfile  
 https://github.com/markjgardner/vsts-terraform-agent/blob/master/Dockerfile  
