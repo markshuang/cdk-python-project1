@@ -6,6 +6,11 @@ https://docs.dogfood-stage.com/guides/working-with-code/tfc-integration/
 https://learn.hashicorp.com/tutorials/terraform/automate-terraform?in=terraform/automation&utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS  
 https://learn.hashicorp.com/tutorials/terraform/tfe-provider-run-triggers?in=terraform/automation  
 https://github.com/hashicorp/learn-terraform-tfe-provider-run-triggers/blob/main/admin.tf  
+-- buildspec files for each stage within the codepipeline for terraform    
+https://hands-on.cloud/how-to-use-codepipeline-cicd-pipeline-to-test-terraform/  
+https://github.com/hands-on-cloud/aws-codepipeline-terraform-cicd-pipeline/blob/master/1_pipeline/codebuild.tf  
+https://hands-on.cloud/how-to-use-codepipeline-cicd-pipeline-to-test-terraform/  
+https://aws.amazon.com/blogs/devops/multi-region-terraform-deployments-with-aws-codepipeline-using-terraform-built-ci-cd/  
 
 07/21/2022   
 -- codepipeline  
