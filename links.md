@@ -1,6 +1,16 @@
 07/23/2022  
 -- aws samples that contains terraform  
 https://github.com/orgs/aws-samples/repositories?q=terraform&type=all&language=&sort=  
+-- aws samples with terraform and codebuild  
+https://github.com/orgs/aws-samples/repositories?q=terraform+codebuild&type=all&language=&sort=   
+https://github.com/aws-samples/devsecops-terraform-dojo-codepipeline   
+-- iam role, its policies for codepipeline, terraform  
+https://github.com/aws-samples/aws-codepipeline-terraform-cicd-samples/blob/main/modules/iam-role/main.tf  
+-- codebuild spec for different stages within codepipeline, terraform   
+https://github.com/aws-samples/aws-codepipeline-terraform-cicd-samples/tree/main/templates  
+https://github.com/aws-samples/route-53-application-recovery-controller-codepipeline-with-terraform  
+
+  
 terraform agent's docker file  
 https://github.com/Mindera/docker-terraform-aws-agent/blob/master/Dockerfile  
 https://github.com/markjgardner/vsts-terraform-agent/blob/master/Dockerfile  
