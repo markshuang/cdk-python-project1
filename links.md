@@ -11,6 +11,26 @@ https://hands-on.cloud/how-to-use-codepipeline-cicd-pipeline-to-test-terraform/
 https://github.com/hands-on-cloud/aws-codepipeline-terraform-cicd-pipeline/blob/master/1_pipeline/codebuild.tf  
 https://hands-on.cloud/how-to-use-codepipeline-cicd-pipeline-to-test-terraform/  
 https://aws.amazon.com/blogs/devops/multi-region-terraform-deployments-with-aws-codepipeline-using-terraform-built-ci-cd/  
+-- terraform codepipeline machine learning  
+https://aws.amazon.com/blogs/machine-learning/deploy-and-manage-machine-learning-pipelines-with-terraform-using-amazon-sagemaker/  
+-- eks blueprint terraform  
+https://aws.amazon.com/blogs/containers/bootstrapping-clusters-with-eks-blueprints/  
+-- aws ACK blueprint  
+https://aws.amazon.com/blogs/opensource/introducing-aws-blueprints-for-crossplane/  
+https://aws.amazon.com/blogs/networking-and-content-delivery/running-recovery-oriented-applications-with-amazon-route-53-application-recovery-controller-aws-ci-cd-tools-and-terraform/  
+https://aws.amazon.com/blogs/devops/monitor-aws-resources-created-by-terraform-in-amazon-devops-guru-using-tfdevops/  
+https://aws.amazon.com/blogs/aws/new-aws-control-tower-account-factory-for-terraform/  
+https://aws.amazon.com/blogs/containers/build-and-deploy-a-spring-boot-application-to-aws-app-runner-with-a-ci-cd-pipeline-using-terraform/  
+https://aws.amazon.com/blogs/aws/announcing-aws-cloud-control-api/  
+https://aws.amazon.com/blogs/containers/how-to-automate-amazon-eks-preventative-controls-in-ci-cd-using-cdk-and-opa-conftest/  
+https://aws.amazon.com/blogs/devops/aws-config-rdk-deploying-the-custom-rules-using-the-terraform/  
+-- can use it on Lazard's infosec 
+https://aws.amazon.com/blogs/devops/continuous-compliance-workflow-for-infrastructure-as-code-part-2/  
+https://aws.amazon.com/blogs/opensource/cloud-governance-and-compliance-on-aws-with-policy-as-code/  
+https://aws.amazon.com/blogs/networking-and-content-delivery/integrating-network-connectivity-testing-with-infrastructure-deployment/  
+https://aws.amazon.com/blogs/developer/build-infrastructure-ci-for-terraform-code-leveraging-aws-developer-tools-and-terratest/  
+https://aws.amazon.com/blogs/containers/integrate-amazon-api-gateway-with-amazon-eks/  
+https://aws.amazon.com/blogs/developer/running-a-kubernetes-job-in-amazon-eks-on-aws-fargate-using-aws-stepfunctions/  
 
 07/21/2022   
 -- codepipeline  
