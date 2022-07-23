@@ -31,6 +31,15 @@ https://aws.amazon.com/blogs/networking-and-content-delivery/integrating-network
 https://aws.amazon.com/blogs/developer/build-infrastructure-ci-for-terraform-code-leveraging-aws-developer-tools-and-terratest/  
 https://aws.amazon.com/blogs/containers/integrate-amazon-api-gateway-with-amazon-eks/  
 https://aws.amazon.com/blogs/developer/running-a-kubernetes-job-in-amazon-eks-on-aws-fargate-using-aws-stepfunctions/  
+-- jenkins in fargate, terraform  
+https://aws.amazon.com/blogs/devops/building-a-serverless-jenkins-environment-on-aws-fargate/  
+https://aws.amazon.com/blogs/developer/provision-aws-infrastructure-using-terraform-by-hashicorp-an-example-of-running-amazon-ecs-tasks-on-aws-fargate/  
+https://aws.amazon.com/blogs/compute/introducing-spot-blueprints-a-template-generator-for-frameworks-like-kubernetes-and-apache-spark/  
+https://aws.amazon.com/blogs/apn/using-aws-codebuild-and-bridgecrew-to-prevent-misconfigurations-in-aws-cloudformation-and-terraform/  
+https://aws.amazon.com/blogs/opensource/accelerate-infrastructure-as-code-development-with-open-source-former2/  
+https://aws.amazon.com/blogs/mt/aws-organizations-aws-config-and-terraform/  
+https://aws.amazon.com/blogs/apn/modernize-your-ci-cd-pipeline-using-jenkins-x-with-amazon-eks/  
+
 
 07/21/2022   
 -- codepipeline  
