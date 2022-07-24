@@ -18,10 +18,13 @@ https://docs.dogfood-stage.com/guides/working-with-code/tfc-integration/
 https://learn.hashicorp.com/tutorials/terraform/automate-terraform?in=terraform/automation&utm_source=WEBSITE&utm_medium=WEB_IO&utm_offer=ARTICLE_PAGE&utm_content=DOCS  
 https://learn.hashicorp.com/tutorials/terraform/tfe-provider-run-triggers?in=terraform/automation  
 https://github.com/hashicorp/learn-terraform-tfe-provider-run-triggers/blob/main/admin.tf  
--- buildspec files for each stage within the codepipeline for terraform    
-https://hands-on.cloud/how-to-use-codepipeline-cicd-pipeline-to-test-terraform/  
+-- buildspec files for each stage within the codepipeline for terraform, TFLine, TFScan, Checkov      
+https://github.com/hands-on-cloud/tf-s3-demo-project  
+-- codebuild, codepipeline for deploying terraform resources  
+https://hands-on.cloud/how-to-use-codepipeline-cicd-pipeline-to-test-terraform/   
 https://github.com/hands-on-cloud/aws-codepipeline-terraform-cicd-pipeline/blob/master/1_pipeline/codebuild.tf  
-https://hands-on.cloud/how-to-use-codepipeline-cicd-pipeline-to-test-terraform/  
+-- build docker file as custom iamge for codebuild   
+https://aws.amazon.com/blogs/devops/extending-aws-codebuild-with-custom-build-environments/  
 https://aws.amazon.com/blogs/devops/multi-region-terraform-deployments-with-aws-codepipeline-using-terraform-built-ci-cd/  
 -- terraform codepipeline machine learning  
 https://aws.amazon.com/blogs/machine-learning/deploy-and-manage-machine-learning-pipelines-with-terraform-using-amazon-sagemaker/  
