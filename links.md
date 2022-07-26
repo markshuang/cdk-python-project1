@@ -1,3 +1,9 @@
+07/25/2022   
+-- secrets manager, with resource based policy    
+https://github.com/visheshgargavi/visheshgargavi-CDKTF-CDK-for-Terraform/blob/5fee97255b74ceae764ab91ace5b397afe4b52e2/secret_manager/variable/var.ts  
+https://github.com/visheshgargavi/visheshgargavi-CDKTF-CDK-for-Terraform/tree/5fee97255b74ceae764ab91ace5b397afe4b52e2/secret_manager  
+
+
 07/23/2022  
 -- aws samples that contains terraform  
 https://github.com/orgs/aws-samples/repositories?q=terraform&type=all&language=&sort=  
