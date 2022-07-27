@@ -6,6 +6,7 @@ https://github.com/visheshgargavi/visheshgargavi-CDKTF-CDK-for-Terraform/tree/5f
 https://github.com/aws-samples/route-53-application-recovery-controller-codepipeline-with-terraform/blob/main/modules/application_stack/auto-scaling-group.tf  
 -- terraform assume role  
 https://learn.hashicorp.com/tutorials/terraform/aws-assumerole  
+https://learn.hashicorp.com/collections/terraform/aws  
 
 
 07/23/2022  
