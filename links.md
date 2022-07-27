@@ -10,6 +10,10 @@ https://learn.hashicorp.com/tutorials/terraform/aws-assumerole
 https://learn.hashicorp.com/tutorials/terraform/aws-cloud-control?in=terraform/aws  
 https://learn.hashicorp.com/collections/terraform/aws  
 
+-- cdktf python unit testing  
+https://github.com/hashicorp/terraform-cdk/blob/e70f8ea10062d13ec50a3e4c6b948b8bc041c28b/packages/cdktf-cli/templates/python/main-test.py  
+
+
 
 07/23/2022  
 -- aws samples that contains terraform  
