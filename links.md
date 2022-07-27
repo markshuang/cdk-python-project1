@@ -4,6 +4,8 @@ https://github.com/visheshgargavi/visheshgargavi-CDKTF-CDK-for-Terraform/blob/5f
 https://github.com/visheshgargavi/visheshgargavi-CDKTF-CDK-for-Terraform/tree/5fee97255b74ceae764ab91ace5b397afe4b52e2/secret_manager  
 -- user data for aws linux 2  
 https://github.com/aws-samples/route-53-application-recovery-controller-codepipeline-with-terraform/blob/main/modules/application_stack/auto-scaling-group.tf  
+-- terraform assume role  
+https://learn.hashicorp.com/tutorials/terraform/aws-assumerole  
 
 
 07/23/2022  
