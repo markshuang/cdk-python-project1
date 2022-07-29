@@ -26,6 +26,10 @@ https://github.com/skorfmann/drop-kick/blob/dfd98c9e3f77adfe391147eddc8e1cf172c9
 -- build custom terraform provider  
 https://github.com/defn/cloud/blob/14c3875d93053c4b911f722641efd677467d74c9/provider/defn_cdktf_provider_buildkite/__init__.py  
 
+-- azure terraform kubernetes cluster  
+https://github.com/kim-hangyeol/hcp/blob/9421cf30712dab014da93707eeee3311dd67102f/Hybrid_Cluster/terraform/create-cluster-azure/main.py  
+-- gepp GEPP takes your app and Dockerize it, sets up a Kubernetes cluster K8s   
+https://github.com/gurayops/gepp/tree/5fe9661b133d6e2824f696784e4632fb76bf8c31   
 
 
 
