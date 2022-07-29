@@ -1,4 +1,11 @@
 07/25/2022   
+-- app running  
+https://github.com/awslabs/amazon-app-runner-deploy  
+
+-- tfsec, with docker file  
+https://github.com/aws-samples/aws-cdk-tfsec/blob/main/repos/docker_image/Dockerfile  
+
+
 -- secrets manager, with resource based policy    
 https://github.com/visheshgargavi/visheshgargavi-CDKTF-CDK-for-Terraform/blob/5fee97255b74ceae764ab91ace5b397afe4b52e2/secret_manager/variable/var.ts  
 https://github.com/visheshgargavi/visheshgargavi-CDKTF-CDK-for-Terraform/tree/5fee97255b74ceae764ab91ace5b397afe4b52e2/secret_manager  
