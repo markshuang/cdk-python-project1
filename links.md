@@ -13,6 +13,20 @@ https://learn.hashicorp.com/collections/terraform/aws
 -- cdktf python unit testing  
 https://github.com/hashicorp/terraform-cdk/blob/e70f8ea10062d13ec50a3e4c6b948b8bc041c28b/packages/cdktf-cli/templates/python/main-test.py  
 
+-- cdktf run with tfe  
+https://github.com/dgreeninger/terraform-cdk-gke-python/tree/c421a06d62dd99965da923cabfbce8bacb7f30b3  
+
+-- docker provider  
+https://github.com/sriazcloud/Terraform-AllClouds-kubernetes/blob/267d2b118547d70bbed90391723e2ec5566b6a18/examples/typescript/docker/main.ts  
+-- docker file with nginx:latest
+[https://github.com/skorfmann/drop-kick/blob/dfd98c9e3f77adfe391147eddc8e1cf172c9617b/examples/app/ ](https://github.com/skorfmann/drop-kick/blob/dfd98c9e3f77adfe391147eddc8e1cf172c9617b/examples/app/Dockerfile)  
+-- applyTag  with visit pattern  
+https://github.com/skorfmann/drop-kick/blob/dfd98c9e3f77adfe391147eddc8e1cf172c9617b/examples/utils.ts  
+
+-- build custom terraform provider  
+https://github.com/defn/cloud/blob/14c3875d93053c4b911f722641efd677467d74c9/provider/defn_cdktf_provider_buildkite/__init__.py  
+
+
 
 
 07/23/2022  
