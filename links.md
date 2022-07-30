@@ -47,12 +47,14 @@ https://aws.amazon.com/blogs/devops/developing-application-patterns-cdk/
 -- with Java spring framework samples  
 https://github.com/aws-samples/aws-solutions-apprunner-vpc-terraform   
 https://github.com/aws-samples/aws-apprunner-terraform  
+-- app runner networking deep dive  
 https://aws.amazon.com/blogs/containers/deep-dive-on-aws-app-runner-vpc-networking/  
 https://github.com/awslabs/amazon-app-runner-deploy  
 -- app runner with custom domain in terraform  
 https://technotrampoline.com/articles/aws-app-runner-for-nodejs-with-docker-and-terraform/  
 https://tty.neveragain.de/2021/06/18/app-runner-deep-dive.html  
-
+-- docker file with node.js with express  
+https://www.apprunnerworkshop.com/getting-started/dockerfile/  
 
 -- tfsec, with docker file  
 https://github.com/aws-samples/aws-cdk-tfsec/blob/main/repos/docker_image/Dockerfile  
