@@ -16,7 +16,8 @@ https://awesome-aws-workshops.com/
 https://aws.amazon.com/blogs/modernizing-with-aws/announcing-aws-microservice-extractor-for-net/  
 -- porting assistant for .NET, moving .NET to .NET Core on linux    
 https://aws.amazon.com/blogs/modernizing-with-aws/migrate-wcf-apps-to-wcfcore-using-porting-assistant/  
-
+-- aws blogs on .NET    
+https://aws.amazon.com/blogs/modernizing-with-aws/category/programing-language/dot-net/page/1/  
 
 -- cdk patterns  
 https://aws.amazon.com/blogs/devops/developing-application-patterns-cdk/  
