@@ -23,8 +23,10 @@ https://aws.amazon.com/blogs/modernizing-with-aws/category/programing-language/d
 -- cdk patterns  
 https://aws.amazon.com/blogs/devops/developing-application-patterns-cdk/  
 
--- app running  
+-- app runner  
+https://github.com/aws-samples/aws-solutions-apprunner-vpc-terraform  
 https://github.com/awslabs/amazon-app-runner-deploy  
+https://github.com/aws-samples/aws-apprunner-terraform  
 
 -- tfsec, with docker file  
 https://github.com/aws-samples/aws-cdk-tfsec/blob/main/repos/docker_image/Dockerfile  
