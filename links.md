@@ -4,6 +4,14 @@
 https://aws.amazon.com/blogs/modernizing-with-aws/generating-ci-cd-pipelines-for-containerized-asp-net-applications-using-aws-app2container/  
 https://www.nopcommerce.com/en/demo  
 https://aws.amazon.com/blogs/modernizing-with-aws/get-started-with-net-development-on-aws-using-quick-starts/  
+https://catalog.us-east-1.prod.workshops.aws/workshops/2c1e5f50-0ebe-4c02-a957-8a71ba1e8c89/en-US/net-modernize-your-app  
+https://github.com/aws-samples/aws-modern-application-workshop  
+https://catalog.us-east-1.prod.workshops.aws/workshops/02696107-09ac-4313-a6cb-3798048b07d7/en-US  
+-- docker file for .NET app  
+https://containerise.awsbuilders.cloud/03_containerising/02_dockerfile.html  
+-- buildspec for build docker image and push to ECR  
+https://containerise.awsbuilders.cloud/05_pipeline/02_buildspec.html  
+https://awesome-aws-workshops.com/  
 
 -- cdk patterns  
 https://aws.amazon.com/blogs/devops/developing-application-patterns-cdk/  
