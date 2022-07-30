@@ -1,4 +1,13 @@
 07/25/2022   
+
+-- App2Container  
+https://aws.amazon.com/blogs/modernizing-with-aws/generating-ci-cd-pipelines-for-containerized-asp-net-applications-using-aws-app2container/  
+https://www.nopcommerce.com/en/demo  
+https://aws.amazon.com/blogs/modernizing-with-aws/get-started-with-net-development-on-aws-using-quick-starts/  
+
+-- cdk patterns  
+https://aws.amazon.com/blogs/devops/developing-application-patterns-cdk/  
+
 -- app running  
 https://github.com/awslabs/amazon-app-runner-deploy  
 
