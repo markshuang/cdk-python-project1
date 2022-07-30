@@ -1,4 +1,8 @@
-07/25/2022   
+-- IAM policy, SCP, multi-accounts    
+https://aws.amazon.com/blogs/industries/best-practices-for-aws-organizations-service-control-policies-in-a-multi-account-environment/  
+https://aws.amazon.com/blogs/security/get-more-out-of-service-control-policies-in-a-multi-account-environment/  
+
+
 
 -- aws ecs fullstack application, Vue.js as front end, Node.js as backend     
 https://github.com/aws-samples/amazon-ecs-fullstack-app-terraform  
