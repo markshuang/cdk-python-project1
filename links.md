@@ -9,7 +9,6 @@ https://github.com/aws-samples/aws-modern-application-workshop
 https://catalog.us-east-1.prod.workshops.aws/workshops/02696107-09ac-4313-a6cb-3798048b07d7/en-US  
 -- docker file for .NET app  
 https://containerise.awsbuilders.cloud/03_containerising/02_dockerfile.html  
-
 -- buildspec for build docker image and push to ECR  
 https://containerise.awsbuilders.cloud/05_pipeline/02_buildspec.html  
 https://awesome-aws-workshops.com/  
@@ -24,9 +23,11 @@ https://aws.amazon.com/blogs/modernizing-with-aws/category/programing-language/d
 https://aws.amazon.com/blogs/devops/developing-application-patterns-cdk/  
 
 -- app runner  
-https://github.com/aws-samples/aws-solutions-apprunner-vpc-terraform  
-https://github.com/awslabs/amazon-app-runner-deploy  
+-- with Java spring framework samples  
+https://github.com/aws-samples/aws-solutions-apprunner-vpc-terraform   
 https://github.com/aws-samples/aws-apprunner-terraform  
+https://aws.amazon.com/blogs/containers/deep-dive-on-aws-app-runner-vpc-networking/  
+https://github.com/awslabs/amazon-app-runner-deploy  
 
 -- tfsec, with docker file  
 https://github.com/aws-samples/aws-cdk-tfsec/blob/main/repos/docker_image/Dockerfile  
