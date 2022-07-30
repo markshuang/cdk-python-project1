@@ -21,6 +21,15 @@ https://aws.amazon.com/blogs/modernizing-with-aws/announcing-aws-microservice-ex
 https://aws.amazon.com/blogs/modernizing-with-aws/migrate-wcf-apps-to-wcfcore-using-porting-assistant/  
 -- aws blogs on .NET    
 https://aws.amazon.com/blogs/modernizing-with-aws/category/programing-language/dot-net/page/1/  
+-- aws samples on .NET (DOTNET)  
+https://github.com/orgs/aws-samples/repositories?q=dotnet&type=all&language=&sort=  
+-- node js sample app  
+https://medium.com/bb-tutorials-and-thoughts/automate-deploying-nodejs-api-docker-image-on-aws-app-runner-through-cloudformation-62f179c3d3cf  
+-- .NET container on app runner  
+https://billthevestguy.com/2021/11/05/net-and-containers-on-aws-part-2-aws-app-runner/  
+-- sample node js with Prometheus  
+https://www.tinystacks.com/blog-post/use-multiple-docker-images-on-the-same-ecs-service/  
+
 
 -- cdk patterns  
 https://aws.amazon.com/blogs/devops/developing-application-patterns-cdk/  
