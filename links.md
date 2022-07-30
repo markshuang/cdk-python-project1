@@ -29,6 +29,15 @@ https://medium.com/bb-tutorials-and-thoughts/automate-deploying-nodejs-api-docke
 https://billthevestguy.com/2021/11/05/net-and-containers-on-aws-part-2-aws-app-runner/  
 -- sample node js with Prometheus  
 https://www.tinystacks.com/blog-post/use-multiple-docker-images-on-the-same-ecs-service/  
+-- docker file for ubuntu with apach server  
+https://bitbucket.org/blog/automating-amazon-elastic-container-ecr-container-builds-using-bitbucket-pipelines  
+-- issue with docker's latest tag, avoid it, using build id as tag intead    
+https://vsupalov.com/docker-latest-tag/  
+https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/  
+-- Ensure ECR repositories have immutable tags  
+https://www.intelligentdiscovery.io/controls/ecr/ecr-immutable-tags  
+-- app runner workshop  
+https://www.apprunnerworkshop.com/  
 
 
 -- cdk patterns  
@@ -40,6 +49,10 @@ https://github.com/aws-samples/aws-solutions-apprunner-vpc-terraform
 https://github.com/aws-samples/aws-apprunner-terraform  
 https://aws.amazon.com/blogs/containers/deep-dive-on-aws-app-runner-vpc-networking/  
 https://github.com/awslabs/amazon-app-runner-deploy  
+-- app runner with custom domain in terraform  
+https://technotrampoline.com/articles/aws-app-runner-for-nodejs-with-docker-and-terraform/  
+https://tty.neveragain.de/2021/06/18/app-runner-deep-dive.html  
+
 
 -- tfsec, with docker file  
 https://github.com/aws-samples/aws-cdk-tfsec/blob/main/repos/docker_image/Dockerfile  
