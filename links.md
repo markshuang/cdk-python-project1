@@ -12,7 +12,10 @@ https://containerise.awsbuilders.cloud/03_containerising/02_dockerfile.html
 -- buildspec for build docker image and push to ECR  
 https://containerise.awsbuilders.cloud/05_pipeline/02_buildspec.html  
 https://awesome-aws-workshops.com/  
+-- microservice extractor for .NET  
 https://aws.amazon.com/blogs/modernizing-with-aws/announcing-aws-microservice-extractor-for-net/  
+-- porting assistant for .NET  
+https://aws.amazon.com/blogs/modernizing-with-aws/migrate-wcf-apps-to-wcfcore-using-porting-assistant/  
 
 
 -- cdk patterns  
