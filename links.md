@@ -1,5 +1,8 @@
 07/25/2022   
 
+-- aws ecs fullstack application, Vue.js as front end, Node.js as backend     
+https://github.com/aws-samples/amazon-ecs-fullstack-app-terraform  
+
 -- App2Container  
 https://aws.amazon.com/blogs/modernizing-with-aws/generating-ci-cd-pipelines-for-containerized-asp-net-applications-using-aws-app2container/  
 https://www.nopcommerce.com/en/demo  
