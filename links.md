@@ -9,6 +9,7 @@ https://github.com/aws-samples/aws-modern-application-workshop
 https://catalog.us-east-1.prod.workshops.aws/workshops/02696107-09ac-4313-a6cb-3798048b07d7/en-US  
 -- docker file for .NET app  
 https://containerise.awsbuilders.cloud/03_containerising/02_dockerfile.html  
+
 -- buildspec for build docker image and push to ECR  
 https://containerise.awsbuilders.cloud/05_pipeline/02_buildspec.html  
 https://awesome-aws-workshops.com/  
@@ -48,7 +49,7 @@ https://github.com/dgreeninger/terraform-cdk-gke-python/tree/c421a06d62dd99965da
 
 -- docker provider  
 https://github.com/sriazcloud/Terraform-AllClouds-kubernetes/blob/267d2b118547d70bbed90391723e2ec5566b6a18/examples/typescript/docker/main.ts  
--- docker file with nginx:latest
+-- docker file with nginx:latest  
 [https://github.com/skorfmann/drop-kick/blob/dfd98c9e3f77adfe391147eddc8e1cf172c9617b/examples/app/ ](https://github.com/skorfmann/drop-kick/blob/dfd98c9e3f77adfe391147eddc8e1cf172c9617b/examples/app/Dockerfile)  
 -- applyTag  with visit pattern  
 https://github.com/skorfmann/drop-kick/blob/dfd98c9e3f77adfe391147eddc8e1cf172c9617b/examples/utils.ts  
