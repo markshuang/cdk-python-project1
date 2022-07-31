@@ -19,6 +19,9 @@ https://lgallardo.com/2018/05/04/asg-lifcecyle-hooks/
 https://github.com/aws-samples/aws-lambda-lifecycle-hooks-function/blob/master/cloudformation/lambda_backup.py  
 -- with different scenarios, user data in linux and windows, as well as with lambda functions  
 https://github.com/aws-samples/amazon-ec2-auto-scaling-group-examples/tree/main/features/lifecycle-hooks  
+-- terraform lifecycle hook  
+https://gitlab.gluzdov.com/public-repos/terraform_modules/-/tree/4f8b1e0e8c55f9a20e39bd45c614b69bb1da1e79  
+
 
 -- IAM policy, SCP, multi-accounts    
 https://aws.amazon.com/blogs/industries/best-practices-for-aws-organizations-service-control-policies-in-a-multi-account-environment/  
