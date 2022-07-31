@@ -2,7 +2,18 @@
 https://aws.amazon.com/blogs/industries/best-practices-for-aws-organizations-service-control-policies-in-a-multi-account-environment/  
 https://aws.amazon.com/blogs/security/get-more-out-of-service-control-policies-in-a-multi-account-environment/  
 
+-- terraform lambda  
+https://github.com/Pocket/terraform-modules/blob/main/src/base/ApplicationVersionedLambda.ts  
+-- lambda target for sqs  
+https://github.com/Pocket/fxa-webhook-proxy/blob/09a9ea0e6980a919615d9c46c5f60a84296be8d9/.aws/src/sqsLambda.ts  
+https://github.com/Pocket/terraform-modules/blob/40643f03b861151f48e6916adb08819c200ad23d/src/pocket/PocketVersionedLambda.ts  
+-- lambda target for evenbridge  
+https://github.com/Pocket/terraform-modules/blob/02c1233942f57a860961e260f6b58b21e14da1e5/src/pocket/PocketEventBridgeWithLambdaTarget.ts  
+-- lambda target for api gateway in route config    
+https://github.com/Pocket/terraform-modules/blob/f8113fead51684fceabad3785fa1f78c00283dec/src/pocket/PocketApiGatewayLambdaIntegration.ts  
 
+-- lambda with [dataarchivefile] in python      
+https://github.com/ciaranevans/cdktf-investigation/blob/a807a78edccaa23cf1dff6c8fba1d87e0dc9a4a4/main.py  
 
 -- aws ecs fullstack application, Vue.js as front end, Node.js as backend     
 https://github.com/aws-samples/amazon-ecs-fullstack-app-terraform  
