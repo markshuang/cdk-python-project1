@@ -1,3 +1,12 @@
+-- python script to assume credential  
+https://github.com/aws-samples/amazon-ec2-auto-scaling-group-examples/blob/main/tools/launch-configuration-inventory/inventory.py  
+-- ALB, EC2 blue/green deployment for predictive scaling  
+https://aws.amazon.com/blogs/compute/retaining-metrics-across-blue-green-deployment-for-predictive-scaling/  
+-- ec2 ami id  - /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2  along user user data  
+https://github.com/aws-samples/amazon-ec2-auto-scaling-group-examples/blob/main/features/predictive-scaling-blue-green-deployment/template.yaml  
+-- ec2 auto-scaling, predictive scaling   
+https://aws.amazon.com/blogs/compute/retaining-metrics-across-blue-green-deployment-for-predictive-scaling/  
+
 -- autoscaling lifecycle hook  
 https://github.com/aws-samples/amazon-ec2-auto-scaling-group-examples  
 -- using user data with lifecycle hook command  
