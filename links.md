@@ -1,3 +1,16 @@
+-- autoscaling lifecycle hook  
+https://github.com/aws-samples/amazon-ec2-auto-scaling-group-examples  
+-- using user data with lifecycle hook command  
+https://www.proud2becloud.com/autoscaling-like-a-pro-how-to-use-ec2-auto-scaling-lifecycle-hooks-the-right-way/  
+https://aws.amazon.com/blogs/devops/under-the-hood-aws-codedeploy-and-auto-scaling-integration/  
+-- using ssm documents along with lambda function for lifecycle hook  
+https://www.bitslovers.com/auto-scaling-lifecycle-hooks/  
+https://github.com/clebermasters/AWS-Autoscaling-Lifecycle-Hooks-Save-EC2-Logs/blob/master/lambda_ssm_call.py  
+https://lgallardo.com/2018/05/04/asg-lifcecyle-hooks/  
+https://github.com/aws-samples/aws-lambda-lifecycle-hooks-function/blob/master/cloudformation/lambda_backup.py  
+-- with different scenarios, user data in linux and windows, as well as with lambda functions  
+https://github.com/aws-samples/amazon-ec2-auto-scaling-group-examples/tree/main/features/lifecycle-hooks  
+
 -- IAM policy, SCP, multi-accounts    
 https://aws.amazon.com/blogs/industries/best-practices-for-aws-organizations-service-control-policies-in-a-multi-account-environment/  
 https://aws.amazon.com/blogs/security/get-more-out-of-service-control-policies-in-a-multi-account-environment/  
