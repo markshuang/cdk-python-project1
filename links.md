@@ -1,3 +1,22 @@
+-- python cli  
+https://docs.python-guide.org/scenarios/cli/  
+https://github.com/shadawck/awesome-cli-frameworks  
+https://codeburst.io/building-beautiful-command-line-interfaces-with-python-26c7e1bb54df  
+https://realpython.com/python-typer-cli/  
+-- good examples  
+https://betterprogramming.pub/designing-beautiful-command-line-applications-with-python-72bd2f972ea  
+https://adrian-td96.medium.com/making-a-cli-application-in-python-a9c7978db54e  
+-- comparison of cli build tools  
+https://www.linuxlinks.com/best-free-open-source-command-line-python-application-development-tools/  
+https://www.manning.com/liveproject/build-an-extensible-cli-with-python  
+-- search for 'cli'  
+https://awesome-python.com/  
+-- supercharged aws cli, good examples    
+https://github.com/donnemartin/saws  
+https://levelup.gitconnected.com/advanced-python-building-a-full-fledged-cli-using-python-f11e1083cc91  
+https://dev.to/wesen/14-great-tips-to-make-amazing-cli-applications-3gp3  
+
+
 -- python script to assume credential  
 https://github.com/aws-samples/amazon-ec2-auto-scaling-group-examples/blob/main/tools/launch-configuration-inventory/inventory.py  
 -- ALB, EC2 blue/green deployment for predictive scaling  
