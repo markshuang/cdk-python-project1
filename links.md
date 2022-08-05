@@ -14,7 +14,22 @@ https://awesome-python.com/
 -- supercharged aws cli, good examples    
 https://github.com/donnemartin/saws  
 https://levelup.gitconnected.com/advanced-python-building-a-full-fledged-cli-using-python-f11e1083cc91  
+-- good tips  
 https://dev.to/wesen/14-great-tips-to-make-amazing-cli-applications-3gp3  
+https://python.libhunt.com/click-alternatives  
+-- example of using click  
+https://thecodinginterface.com/blog/click-cli-file-and-stand-input-arguments/  
+-- clear design goals  
+https://metacpan.org/pod/CLI::Framework  
+https://emmett.sh/docs/2.4.x/cli  
+-- list of python packages for cli app  
+https://pythonrepo.com/catalog/python-command-line-interface-development_newest_1  
+-- another task runner, better  
+https://pydoit.org/  
+-- click example  
+https://paiml.com/docs/home/books/python-command-line-tools/chapter01-getting-started-click/  
+
+
 
 
 -- python script to assume credential  
