@@ -1,4 +1,7 @@
 -- python cli  
+-- typer, build cli package  
+https://typer.tiangolo.com/tutorial/package/  
+
 https://docs.python-guide.org/scenarios/cli/  
 https://github.com/shadawck/awesome-cli-frameworks  
 https://codeburst.io/building-beautiful-command-line-interfaces-with-python-26c7e1bb54df  
