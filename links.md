@@ -1,7 +1,7 @@
 -- AWS dotNET tools, can use "dotnet aws deploy" as model for cli    
 https://catalog.us-east-1.prod.workshops.aws/workshops/02696107-09ac-4313-a6cb-3798048b07d7/en-US/2-how-to-deploy-dotnet-apps/simplified-deployment-experience/2-generate-deployment-project  
 
--- dotnet commands 
+-- dotnet commands   
 dotnet tool install -g aws.deploy.cli  
 dotnet aws deploy  
 -- don't forget to add the nuget feed after installing the .NET SDK on new machine  
