@@ -2,8 +2,14 @@
 -- typer, build cli package  
 https://typer.tiangolo.com/tutorial/package/  
 
--- fastAPI  
+-- fastAPI, using pyDantic -- from pydantic import BaseModel  
 https://fastapi.tiangolo.com/features/  
+
+-- pipx, isolated environment    
+https://github.com/pypa/pipx
+
+-- python package manager- peotry    
+https://python-poetry.org/   
 
 https://docs.python-guide.org/scenarios/cli/  
 https://github.com/shadawck/awesome-cli-frameworks  
