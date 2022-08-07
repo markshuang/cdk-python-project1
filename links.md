@@ -7,6 +7,8 @@ dotnet aws deployment-projects generate
 -- dotnet commands   
 dotnet tool install -g aws.deploy.cli  
 dotnet aws deploy  
+dotnet tool search *aws*   
+dotnet tool list  
 -- don't forget to add the nuget feed after installing the .NET SDK on new machine  
 dotnet nuget add source https://api.nuget.org/v3/index.json -n nuget.org   
 
