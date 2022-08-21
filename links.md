@@ -1,6 +1,14 @@
 -- dockerfiles for windows 2019  
 https://github.com/sixeyed/dockerfiles-windows  
 
+needs to use $env: in front of codebuild builtin variables like $env:CODEBUILD_SRC_DIR to refer to that variable for windows commands  
+docker pull mcr.microsoft.com/windows/servercore:ltsc2019-am64   
+need to use ltsc2019-am64 tag that matches the os that does the pull  
+use two FROM in  the docker file that copy the build output from first image to reduce the size  
+https://github.com/sixeyed/dockerfiles-windows/blob/master/docker-cli/windowsservercore/ltsc2019/Dockerfile  
+Codebuild windows images have the choco intalled so can use it to install other tools on build machine  
+
+
 -- terraform transit gateway vpc attachment   
 [aws_ec2_transit_gateway](https://github.com/hashicorp/terraform-provider-aws/blob/main/examples/transit-gateway-cross-account-vpc-attachment/main.tf)  
 
