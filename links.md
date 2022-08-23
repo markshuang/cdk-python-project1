@@ -1,5 +1,10 @@
 -- cresaste lambda deployment package  
+https://docs.aws.amazon.com/lambda/latest/dg/python-package.html  
+https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-python  
 https://alek-cora-glez.medium.com/deploying-aws-lambda-function-with-terraform-custom-dependencies-7874407cd4fc  
+https://aws.amazon.com/premiumsupport/knowledge-center/lambda-python-package-compatible/  
+https://aws.amazon.com/premiumsupport/knowledge-center/lambda-deployment-package-errors/  
+
 
 -- dockerfiles for windows 2019  
 https://github.com/sixeyed/dockerfiles-windows  
