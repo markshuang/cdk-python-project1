@@ -1,3 +1,6 @@
+-- cresaste lambda deployment package  
+https://alek-cora-glez.medium.com/deploying-aws-lambda-function-with-terraform-custom-dependencies-7874407cd4fc  
+
 -- dockerfiles for windows 2019  
 https://github.com/sixeyed/dockerfiles-windows  
 
