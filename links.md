@@ -17,13 +17,13 @@ https://aws.amazon.com/blogs/architecture/field-notes-working-with-route-tables-
 Transit Gateway Routing :: Networking Immersion Day (workshop.aws)   
 https://catalog.workshops.aws/networking/en-US/intermediate/2-tgw-vpns/60-tgw-routing  
 
--- complete examples on cdk transit gateway in multi-account
-CDK implementation of transit gateway in Typescript
 
 -- aws blogs on transit gateway  
 AWS Transit Gateway | AWS Architecture Blog (amazon.com)  
 https://aws.amazon.com/blogs/architecture/category/networking-content-delivery/aws-transit-gateway/   
 
+-- complete examples on cdk transit gateway in multi-account
+CDK implementation of transit gateway in Typescript  
 
 	1. Create Transit gateway from networking account, and share it with organization
 		biotech-blueprint-multi-account/transit-stack.ts at bd89b72f704c258444b4cb87b740325b417da78c · aws-samples/biotech-blueprint-multi-account (github.com)
