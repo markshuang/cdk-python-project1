@@ -9,6 +9,22 @@ https://aws.amazon.com/premiumsupport/knowledge-center/lambda-deployment-package
 https://github.com/aws-samples/biotech-blueprint-multi-account/blob/bd89b72f704c258444b4cb87b740325b417da78c/lib/transit-stack.ts  
 https://github.com/corymhall/cdk-transit-gateway-example  
 
+-- excellent example on how to route traffic using different transit gateway's route tables  
+Field Notes: Working with Route Tables in AWS Transit Gateway | AWS Architecture Blog (amazon.com)  
+https://aws.amazon.com/blogs/architecture/field-notes-working-with-route-tables-in-aws-transit-gateway/  
+
+-- networking workshop on transit gateway routing  
+Transit Gateway Routing :: Networking Immersion Day (workshop.aws)   
+https://catalog.workshops.aws/networking/en-US/intermediate/2-tgw-vpns/60-tgw-routing  
+
+-- complete examples on cdk transit gateway in multi-account
+CDK implementation of transit gateway in Typescript
+
+-- aws blogs on transit gateway  
+AWS Transit Gateway | AWS Architecture Blog (amazon.com)  
+https://aws.amazon.com/blogs/architecture/category/networking-content-delivery/aws-transit-gateway/   
+
+
 	1. Create Transit gateway from networking account, and share it with organization
 		biotech-blueprint-multi-account/transit-stack.ts at bd89b72f704c258444b4cb87b740325b417da78c · aws-samples/biotech-blueprint-multi-account (github.com)
 	2. Create the transit gateway attachment first on the target vpc account that needs to be connected with transit gateway, where subnet can be connectivity subnets created specifically for transit gateway attachment
