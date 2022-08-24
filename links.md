@@ -11,6 +11,7 @@ https://aws.amazon.com/premiumsupport/knowledge-center/lambda-deployment-package
 -- transit gateway  
 https://github.com/aws-samples/biotech-blueprint-multi-account/blob/bd89b72f704c258444b4cb87b740325b417da78c/lib/transit-stack.ts  
 https://github.com/corymhall/cdk-transit-gateway-example  
+https://github.com/hashicorp/terraform-provider-aws/blob/main/examples/transit-gateway-cross-account-vpc-attachment/main.tf  
 
 -- excellent example on how to route traffic using different transit gateway's route tables  
 Field Notes: Working with Route Tables in AWS Transit Gateway | AWS Architecture Blog (amazon.com)  
