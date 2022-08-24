@@ -5,6 +5,42 @@ https://alek-cora-glez.medium.com/deploying-aws-lambda-function-with-terraform-c
 https://aws.amazon.com/premiumsupport/knowledge-center/lambda-python-package-compatible/  
 https://aws.amazon.com/premiumsupport/knowledge-center/lambda-deployment-package-errors/  
 
+-- transit gateway  
+https://github.com/aws-samples/biotech-blueprint-multi-account/blob/bd89b72f704c258444b4cb87b740325b417da78c/lib/transit-stack.ts  
+https://github.com/corymhall/cdk-transit-gateway-example  
+
+	1. Create Transit gateway from networking account, and share it with organization
+		biotech-blueprint-multi-account/transit-stack.ts at bd89b72f704c258444b4cb87b740325b417da78c · aws-samples/biotech-blueprint-multi-account (github.com)
+	2. Create the transit gateway attachment first on the target vpc account that needs to be connected with transit gateway, where subnet can be connectivity subnets created specifically for transit gateway attachment
+		    const transitGatewayAttachment = new ec2.CfnTransitGatewayAttachment(this, 'tgAttachment', { 
+		        subnetIds: appSubnets.subnetIds,
+		        transitGatewayId: core.Token.asString(transitGatewayIDSecretValue), 
+		        vpcId: this.Vpc.vpcId
+		    });
+		biotech-blueprint-multi-account/bb-20-stack.ts at bd89b72f704c258444b4cb87b740325b417da78c · aws-samples/biotech-blueprint-multi-account (github.com)
+	3. Create ec2.CfnRoute to attach subnets within target vpc account to the transit gateway id with each destination cidr
+		var routeCounter = 0;
+		    for (let routeTableId in this.routeTableHash){
+		      const route = new ec2.CfnRoute(this, `${routeCounter}TransitGatewayRouteForRouteTable`, {
+		        routeTableId: routeTableId,
+		        destinationCidrBlock: props.destinationCidr,
+		        transitGatewayId: core.Token.asString(transitGatewayIDSecretValue)
+		      });
+		      routeCounter++;
+	    }
+		biotech-blueprint-multi-account/vpcRouteTableTransitRoute.ts at mainline · aws-samples/biotech-blueprint-multi-account (github.com)
+		
+	4. Create ec2.CfnRransitgatewayRoute on the networking account where transit gateway resides, it needs to have the targetVpcTransitGatewayAttachment id and its cidr block from target vpc
+		const transitVpcRoute = new ec2.CfnTransitGatewayRoute(scope, `${this.node.id}TransitVPCRoute`, {
+		      destinationCidrBlock: core.Token.asString(targetCidrRangeSecretValue),
+		      transitGatewayAttachmentId: core.Token.asString(targetVpcGatewayAttachmentSecretValue),
+		      transitGatewayRouteTableId: core.Token.asString( transitGatewayRoutTableSecretValue)
+		    });
+		biotech-blueprint-multi-account/transitroutes-stack.ts at mainline · aws-samples/biotech-blueprint-multi-account (github.com)
+	5. Can use the following command to do the lookup for transit gateway id within target vpc if it has been shared with aws organization from networking account, or use AwsSdkCall within cdk
+	
+	aws ec2 describe-transit-gateways
+	From <https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-transit-gateways.html> 
 
 -- dockerfiles for windows 2019  
 https://github.com/sixeyed/dockerfiles-windows  
