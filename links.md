@@ -1,6 +1,9 @@
 -- amplify  
 https://catalog.us-east-1.prod.workshops.aws/workshops/84db0afb-0279-4d29-ae26-1609043d5bfd/en-US   
 
+-- terraform vpc endpoints  
+https://github.com/abdelilah/cdktf-aws-ecs-app/blob/65e52a247f9ad8573e9d7e140a206935928a9f49/resources/vpc.ts   
+
 -- create lambda deployment package  
 https://docs.aws.amazon.com/lambda/latest/dg/python-package.html  
 https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-python  
