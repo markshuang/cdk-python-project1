@@ -1,4 +1,4 @@
--- cresaste lambda deployment package  
+-- create lambda deployment package  
 https://docs.aws.amazon.com/lambda/latest/dg/python-package.html  
 https://github.com/awsdocs/aws-lambda-developer-guide/tree/main/sample-apps/blank-python  
 https://alek-cora-glez.medium.com/deploying-aws-lambda-function-with-terraform-custom-dependencies-7874407cd4fc  
