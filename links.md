@@ -1,8 +1,23 @@
+-- cloud design patterns  
+https://github.com/aws-samples/serverless-patterns/  
+
+-- when config ALB access log to S3, S3 can only accept SSE-S3 encryption, no kms key.  
+-- EFS for ECS is applicable for linux container only, windows container is not support yet.  
+
+-- convert cloudformation to terraform  
+https://github.com/DontShaveTheYak/cf2tf  
+https://github.com/humanmade/cf-to-tf  
+https://github.com/ulich/cloudformation-to-terraform-migration  
+https://former2.com/  
+
 -- amplify  
 https://catalog.us-east-1.prod.workshops.aws/workshops/84db0afb-0279-4d29-ae26-1609043d5bfd/en-US   
 
 -- terraform vpc endpoints  
 https://github.com/abdelilah/cdktf-aws-ecs-app/blob/65e52a247f9ad8573e9d7e140a206935928a9f49/resources/vpc.ts   
+
+-- privatelink in cloudformation template, httpd server with dynamic index.html  
+https://catalog.workshops.aws/networking/en-US/intermediate/5-vpc-endpoint-services/20-vpc-endpoint-services-deployment  
 
 -- create lambda deployment package  
 https://docs.aws.amazon.com/lambda/latest/dg/python-package.html  
