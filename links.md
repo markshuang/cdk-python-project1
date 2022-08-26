@@ -1,5 +1,6 @@
 -- cloud design patterns  
 https://github.com/aws-samples/serverless-patterns/  
+-- search "serverless patterns" on github, look for repo  
 
 -- when config ALB access log to S3, S3 can only accept SSE-S3 encryption, no kms key.  
 -- EFS for ECS is applicable for linux container only, windows container is not support yet.  
