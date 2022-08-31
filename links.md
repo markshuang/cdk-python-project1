@@ -1,3 +1,34 @@
+-- dynamoDB  
+-- converting and migrating mysql tables and its data into dynamoDB table design and using DMS to migrate data too    
+https://master.amazon-dynamodb-labs.com/design-patterns.html  
+-- using facets to visualize the PK and SK and its data in NoSql Workbench  
+https://medium.com/@ratulsaha/how-to-model-amazon-dynamodb-databases-with-nosql-workbench-bdb1bdbb6fcc  
+https://aws.amazon.com/blogs/database/choosing-the-right-dynamodb-partition-key/   
+https://medium.com/@nabtechblog/advanced-design-patterns-for-amazon-dynamodb-354f97c96c2  
+https://www.trek10.com/blog/dynamodb-single-table-relational-modeling/  
+https://www.trek10.com/blog/best-practices-for-secondary-indexes-with-dynamodb/  
+https://www.dynamodbbook.com/  
+https://aws.amazon.com/blogs/mt/using-cloudtrail-data-events-with-athena-and-cloudwatch-to-create-an-audit-trail-for-dynamodb-tables-events/  
+https://aws.amazon.com/blogs/mt/manage-control-tower-life-cycle-actions-aws-service-catalog-aws-config-amazon-dynamodb-aws-cloudformation/  
+https://aws.amazon.com/blogs/apn/partitioning-pooled-multi-tenant-saas-data-with-amazon-dynamodb/  
+https://aws.amazon.com/blogs/database/import-and-export-cloudformation-templates-and-csv-sample-data-with-nosql-workbench-for-amazon-dynamodb/  
+https://aws.amazon.com/blogs/mobile/multi-region-deployment-aws-appsync-dynamodb-tables/  
+https://aws.amazon.com/blogs/compute/using-the-circuit-breaker-pattern-with-aws-step-functions-and-amazon-dynamodb/  
+https://www.jeremydaly.com/how-to-switch-from-rdbms-to-dynamodb-in-20-easy-steps/  
+https://nordcloud.com/tech-community/problems-with-dynamodb-single-table-design/  
+https://github.com/trek10inc/ddb-single-table-example  
+https://www.dynamodbguide.com/what-is-dynamo-db  
+https://www.trek10.com/blog/dynamodb-single-table-relational-modeling/  
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-sort-keys.html  
+https://www.jeremydaly.com/takeaways-from-dynamodb-deep-dive-advanced-design-patterns-dat403/  
+https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/bp-adjacency-graphs.html  
+https://aws.amazon.com/blogs/database/data-modeling-with-nosql-workbench-for-amazon-dynamodb/  
+https://aws.amazon.com/blogs/database/building-enterprise-applications-using-amazon-dynamodb-aws-lambda-and-golang/  
+https://aws.amazon.com/blogs/database/the-top-20-most-viewed-amazon-dynamodb-documentation-pages-in-2019/  
+https://aws.amazon.com/blogs/database/amazon-dynamodb-gaming-use-cases-and-design-patterns/  
+https://aws.amazon.com/blogs/database/import-and-export-cloudformation-templates-and-csv-sample-data-with-nosql-workbench-for-amazon-dynamodb/  
+
+
 -- cloud design patterns  
 https://github.com/aws-samples/serverless-patterns/  
 -- search "serverless patterns" on github, look for repo  
