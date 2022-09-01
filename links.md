@@ -28,6 +28,13 @@ https://aws.amazon.com/blogs/database/the-top-20-most-viewed-amazon-dynamodb-doc
 https://aws.amazon.com/blogs/database/amazon-dynamodb-gaming-use-cases-and-design-patterns/  
 https://aws.amazon.com/blogs/database/import-and-export-cloudformation-templates-and-csv-sample-data-with-nosql-workbench-for-amazon-dynamodb/  
 
+three attributes for dynamoDB  
+ - PK,  
+ - SK_GSI_PK, can be sort key for primary or primary key for Global Secondary Index  
+ - GSI_SK, sort key for Global Seconday Index  
+
+ 
+
 
 -- cloud design patterns  
 https://github.com/aws-samples/serverless-patterns/  
