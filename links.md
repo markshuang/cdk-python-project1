@@ -1,3 +1,11 @@
+-- terraform cloud, workspace issue  
+https://discuss.hashicorp.com/t/terraform-cloud-and-cdktf-create-workspaces-dynamically/27770/7  
+https://github.com/hashicorp/terraform-cdk/issues/838  
+https://github.com/mijailr/terraform-cloud  
+https://github.com/hashicorp/terraform-cdk/issues/1554  
+https://github.com/hashicorp/terraform-cdk/issues/1737  
+
+
 -- dynamoDB  
 -- converting and migrating mysql tables and its data into dynamoDB table design and using DMS to migrate data too    
 https://master.amazon-dynamodb-labs.com/design-patterns.html  
