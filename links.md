@@ -5,6 +5,8 @@ https://github.com/mijailr/terraform-cloud
 https://github.com/hashicorp/terraform-cdk/issues/1554  
 https://github.com/hashicorp/terraform-cdk/issues/1737  
 https://github.com/hashicorp/terraform-cdk/issues/670   
+-- using http api to create workspace in terraform cloud  
+https://gist.github.com/DevBOFH/7bd65dbcb945cdfce42d21b1b6bc0e1b  
 
 
 -- dynamoDB  
