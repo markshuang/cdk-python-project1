@@ -4,6 +4,7 @@ https://github.com/hashicorp/terraform-cdk/issues/838
 https://github.com/mijailr/terraform-cloud  
 https://github.com/hashicorp/terraform-cdk/issues/1554  
 https://github.com/hashicorp/terraform-cdk/issues/1737  
+https://github.com/hashicorp/terraform-cdk/issues/670   
 
 
 -- dynamoDB  
