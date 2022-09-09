@@ -13,6 +13,8 @@ https://www.powershellgallery.com/packages/PS-Terraform-Cloud/0.0.3/Content/PS-T
 https://medium.com/hashicorp-engineering/migrating-a-lot-of-state-with-python-and-the-terraform-cloud-api-997ec798cd11  
 -- python library for Terraform cloud api  
 https://github.com/dahlke/terrasnek  
+-- terraform guide  
+https://github.com/hashicorp/terraform-guides  
 
 
 -- dynamoDB  
