@@ -15,6 +15,8 @@ https://medium.com/hashicorp-engineering/migrating-a-lot-of-state-with-python-an
 https://github.com/dahlke/terrasnek  
 -- terraform guide  
 https://github.com/hashicorp/terraform-guides  
+-- using Amazon Linux2 on windows  
+https://aws.amazon.com/blogs/developer/developing-on-amazon-linux-2-using-windows/  
 
 
 -- dynamoDB  
