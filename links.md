@@ -7,6 +7,12 @@ https://github.com/hashicorp/terraform-cdk/issues/1737
 https://github.com/hashicorp/terraform-cdk/issues/670   
 -- using http api to create workspace in terraform cloud  
 https://gist.github.com/DevBOFH/7bd65dbcb945cdfce42d21b1b6bc0e1b  
+-- using powershell to create workspace in terraform cloud  
+https://www.powershellgallery.com/packages/PS-Terraform-Cloud/0.0.3/Content/PS-Terraform-Cloud.psm1  
+-- migrate terraform state files to Terraform Cloud or Enterprise  
+https://medium.com/hashicorp-engineering/migrating-a-lot-of-state-with-python-and-the-terraform-cloud-api-997ec798cd11  
+-- python library for Terraform cloud api  
+https://github.com/dahlke/terrasnek  
 
 
 -- dynamoDB  
