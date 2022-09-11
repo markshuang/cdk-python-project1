@@ -1,3 +1,6 @@
+-- CDKTF Testing class usage for python  
+https://github.com/hashicorp/terraform-cdk/blob/e70f8ea10062d13ec50a3e4c6b948b8bc041c28b/test/python/testing-matchers/test_assertions.py  
+
 -- terraform cloud, workspace issue  
 https://discuss.hashicorp.com/t/terraform-cloud-and-cdktf-create-workspaces-dynamically/27770/7  
 https://github.com/hashicorp/terraform-cdk/issues/838  
