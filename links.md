@@ -25,6 +25,8 @@ https://aws.amazon.com/blogs/containers/kubernetes-cluster-upgrade-the-blue-gree
 https://aws.amazon.com/blogs/developer/lean-fast-and-oversized-aws-lambdas-on-jvm-amazon-corretto-java/  
 
 -- CDKTF Testing class usage for python  
+-- python examples for Testing class  
+https://github.com/hashicorp/terraform-cdk/tree/main/test/python  
 https://github.com/hashicorp/terraform-cdk/blob/e70f8ea10062d13ec50a3e4c6b948b8bc041c28b/test/python/testing-matchers/test_assertions.py  
 
 -- terraform cloud, workspace issue  
