@@ -1,3 +1,28 @@
+-- rds proxy  
+https://github.com/aws-samples/rds-proxy-iac-terraform  
+https://github.com/aws-samples/amazon-rds-proxy-demo  
+https://github.com/aws-samples/serverless-rds-proxy-demo  
+https://github.com/aws-samples/amazon-rds-proxy-multitenant-load-test  
+https://aws.amazon.com/blogs/database/build-and-load-test-a-multi-tenant-saas-database-proxy-solution-with-amazon-rds-proxy/  
+https://aws.amazon.com/blogs/database/use-amazon-rds-proxy-to-provide-access-to-rds-databases-across-aws-accounts/  
+use AWS RAM to share the subnet from application account with the database account.   
+After configure RDS Proxy with the local database account, create a proxy endpoint for the application account. This step is only needed for cross account access.   https://aws.amazon.com/blogs/database/access-amazon-rds-across-vpcs-using-aws-privatelink-and-network-load-balancer/  
+https://aws.amazon.com/blogs/database/use-amazon-rds-proxy-with-read-only-endpoints/  
+
+-- CDK  
+https://aws.amazon.com/blogs/devops/leverage-l2-constructs-to-reduce-the-complexity-of-your-aws-cdk-application/   
+https://aws.amazon.com/blogs/infrastructure-and-automation/deploy-bastion-hosts-into-private-subnets-with-aws-cdk/  
+https://aws.amazon.com/blogs/infrastructure-and-automation/use-aws-cdk-to-initialize-amazon-rds-instances/  
+
+https://aws.amazon.com/blogs/apn/aws-data-transfer-charges-for-server-and-serverless-architectures/  
+https://aws.amazon.com/blogs/publicsector/building-serverless-web-application-architecture-aws-secure-environment-accelerator-asea/  
+
+-- EKS blue/green deployment  
+https://aws.amazon.com/blogs/containers/kubernetes-cluster-upgrade-the-blue-green-deployment-strategy/  
+
+-- aws corretto, run java application  
+https://aws.amazon.com/blogs/developer/lean-fast-and-oversized-aws-lambdas-on-jvm-amazon-corretto-java/  
+
 -- CDKTF Testing class usage for python  
 https://github.com/hashicorp/terraform-cdk/blob/e70f8ea10062d13ec50a3e4c6b948b8bc041c28b/test/python/testing-matchers/test_assertions.py  
 
