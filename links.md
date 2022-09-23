@@ -6,7 +6,8 @@ https://github.com/aws-samples/amazon-rds-proxy-multitenant-load-test
 https://aws.amazon.com/blogs/database/build-and-load-test-a-multi-tenant-saas-database-proxy-solution-with-amazon-rds-proxy/  
 https://aws.amazon.com/blogs/database/use-amazon-rds-proxy-to-provide-access-to-rds-databases-across-aws-accounts/  
 use AWS RAM to share the subnet from application account with the database account.   
-After configure RDS Proxy with the local database account, create a proxy endpoint for the application account. This step is only needed for cross account access.   https://aws.amazon.com/blogs/database/access-amazon-rds-across-vpcs-using-aws-privatelink-and-network-load-balancer/  
+After configure RDS Proxy with the local database account, create a proxy endpoint for the application account. This step is only needed for cross account access.      
+https://aws.amazon.com/blogs/database/access-amazon-rds-across-vpcs-using-aws-privatelink-and-network-load-balancer/  
 https://aws.amazon.com/blogs/database/use-amazon-rds-proxy-with-read-only-endpoints/  
 
 -- CDK  
