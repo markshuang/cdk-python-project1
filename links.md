@@ -1,4 +1,33 @@
+-- aws .NET immersion day  
+https://catalog.us-east-1.prod.workshops.aws/workshops/02696107-09ac-4313-a6cb-3798048b07d7/en-US  
+
+-- serverless patterns  
+https://github.com/aws-samples/serverless-patterns/tree/main/cdk-eventbridge-stepfunction  
+https://serverlessland.com/patterns?framework=Terraform  
+
+-- aws networking, transit gateway    
+https://catalog.workshops.aws/networking/en-US  
+https://github.com/corymhall/cdk-transit-gateway-example  
+https://github.com/aws-samples/biotech-blueprint-multi-account/blob/bd89b72f704c258444b4cb87b740325b417da78c/lib/transit-stack.ts  
+https://github.com/hashicorp/terraform-provider-aws/blob/main/examples/transit-gateway-cross-account-vpc-attachment/main.tf  
+https://github.com/abdelilah/cdktf-aws-ecs-app/blob/65e52a247f9ad8573e9d7e140a206935928a9f49/resources/vpc.ts  
+
+-- terraform cross-account, multi-account deployment  
+https://medium.com/@aw.panda.aws/4-steps-to-deploy-to-multiple-aws-accounts-with-terraform-bbb00bb4e789  
+https://cloudly.engineer/2021/terraform-aws-multi-account-setup/aws/  
+https://www.hashicorp.com/resources/going-multi-account-with-terraform-on-aws  
+https://github.com/hashicorp/learn-terraform-aws-assume-role-ec2  
+https://learn.hashicorp.com/tutorials/terraform/aws-assumerole  
+https://thenewstack.io/terraform-on-aws-multi-account-setup-and-other-advanced-tips/  
+https://github.com/aws-samples/aws-saas-parallel-deployments  
+
+-- aws secure environment accelerator  
+https://aws.amazon.com/blogs/publicsector/building-serverless-web-application-architecture-aws-secure-environment-accelerator-asea/  
+https://docs.aws.amazon.com/whitepapers/latest/public-sector-cloud-transformation/secure-environment-accelerator-canada.html  
+
 -- rds proxy  
+https://github.com/orgs/aws-samples/repositories?q=rds+proxy&type=all&language=&sort=  
+https://aws.amazon.com/blogs/database/category/database/amazon-rds/  
 https://github.com/aws-samples/rds-proxy-iac-terraform  
 https://github.com/aws-samples/amazon-rds-proxy-demo  
 https://github.com/aws-samples/serverless-rds-proxy-demo  
@@ -14,6 +43,7 @@ https://aws.amazon.com/blogs/database/use-amazon-rds-proxy-with-read-only-endpoi
 https://aws.amazon.com/blogs/devops/leverage-l2-constructs-to-reduce-the-complexity-of-your-aws-cdk-application/   
 https://aws.amazon.com/blogs/infrastructure-and-automation/deploy-bastion-hosts-into-private-subnets-with-aws-cdk/  
 https://aws.amazon.com/blogs/infrastructure-and-automation/use-aws-cdk-to-initialize-amazon-rds-instances/  
+
 
 https://aws.amazon.com/blogs/apn/aws-data-transfer-charges-for-server-and-serverless-architectures/  
 https://aws.amazon.com/blogs/publicsector/building-serverless-web-application-architecture-aws-secure-environment-accelerator-asea/  
