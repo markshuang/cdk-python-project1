@@ -1,3 +1,12 @@
+-- cloud platform enginerring, internal developer platform  
+https://platformengineering.org/talks-library/devops-is-dead-long-live-platform-engineering  
+https://thenewstack.io/devops-is-dead-embrace-platform-engineering/  
+https://iximiuz.com/en/posts/devops-sre-and-platform-engineering/  
+https://www.getambassador.io/developer-control-plane/dcp-insights-cheryl-hung/  
+https://blog.getambassador.io/is-platform-engineering-the-new-devops-or-sre-472ed97a1885  
+https://platformengineering.org/blog/what-is-platform-engineering  
+https://internaldeveloperplatform.org/
+
 -- aws .NET immersion day  
 https://catalog.us-east-1.prod.workshops.aws/workshops/02696107-09ac-4313-a6cb-3798048b07d7/en-US  
 
