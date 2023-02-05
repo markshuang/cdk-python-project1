@@ -1,3 +1,47 @@
+-- AWS IAM ABAC
+https://aws.amazon.com/blogs/security/working-backward-from-iam-policies-and-principal-tags-to-standardized-names-and-tags-for-your-aws-resources/  
+{       
+    "Sid": "AllowEC2ResourceCreationWithRequiredTags",
+    "Action": [
+        "ec2:CreateVolume",
+        "ec2:RunInstances"
+    ],      
+    "Resource": [
+        "arn:aws:ec2:*:*:instance/*",
+		"arn:aws:ec2:*:*:volume/*",
+		"arn:aws:ec2:*:*:network-interface/*"
+    ],      
+    "Effect": "Allow",
+    "Condition": {
+        "StringEquals": {
+            "aws:RequestTag/access-project": "${aws:PrincipalTag/access-project}",
+            "aws:RequestTag/access-application": "${aws:PrincipalTag/access-application}",
+            "aws:RequestTag/access-environment": [ "dev", "stg", "prd" ],   
+            "aws:RequestTag/cost-center": "${aws:PrincipalTag/cost-center}"
+        }
+    }
+},
+{       
+    "Sid": "AllowCreateTagsIfRequestingValidTags",
+    "Action": [
+        "ec2:CreateTags"
+    ],
+    "Resource": [
+        "arn:aws:ec2:*:*:instance/*",
+		"arn:aws:ec2:*:*:volume/*",
+		"arn:aws:ec2:*:*:network-interface/*"
+    ],
+    "Effect": "Allow",
+    "Condition": {
+        "StringEquals": {
+            "aws:RequestTag/access-project": "${aws:PrincipalTag/access-project}",
+            "aws:RequestTag/access-application": "${aws:PrincipalTag/access-application}",
+            "aws:RequestTag/access-environment": [ "dev", "stg", "prd" ],
+            "ec2:CreateAction": "RunInstances"  
+        }
+    }
+}    
+
 -- cloud platform enginerring, internal developer platform  
 https://platformengineering.org/talks-library/devops-is-dead-long-live-platform-engineering  
 https://thenewstack.io/devops-is-dead-embrace-platform-engineering/  
