@@ -1,3 +1,11 @@
+https://clickup.com/templates/ai-prompts/interviews
+https://codeinterview.io/blog/using-chatgpt-for-recruiting/
+https://www.herohunt.ai/blog/9-chatgpt-prompts-for-recruiters
+https://www.talentlyft.com/en/blog/article/490/how-to-use-chatgpt-for-recruiting-guide-prompts
+https://www.tryexponent.com/blog/design-chatgpt-system-design-mock-interview
+https://skimai.com/how-to-write-job-descriptions-and-interview-questions-with-chatgpt/
+
+
 -- AWS IAM ABAC  
 https://aws.amazon.com/blogs/?awsf.blog-master-category=*all&awsf.blog-master-learning-levels=*all&awsf.blog-master-industry=*all&awsf.blog-master-analytics-products=*all&awsf.blog-master-artificial-intelligence=*all&awsf.blog-master-aws-cloud-financial-management=*all&awsf.blog-master-blockchain=*all&awsf.blog-master-business-applications=*all&awsf.blog-master-compute=*all&awsf.blog-master-customer-enablement=*all&awsf.blog-master-customer-engagement=*all&awsf.blog-master-database=*all&awsf.blog-master-developer-tools=*all&awsf.blog-master-devops=*all&awsf.blog-master-end-user-computing=*all&awsf.blog-master-mobile=*all&awsf.blog-master-iot=*all&awsf.blog-master-management-governance=*all&awsf.blog-master-media-services=*all&awsf.blog-master-migration-transfer=*all&awsf.blog-master-migration-solutions=*all&awsf.blog-master-networking-content-delivery=*all&awsf.blog-master-programming-language=*all&awsf.blog-master-sector=*all&awsf.blog-master-security=*all&awsf.blog-master-storage=*all&filtered-posts.q=Attribute-Based%2BAccess%2BControl%2B(ABAC)%2Bin%2BAWS%2BIdentity%2Band%2BAccess%2BManagement%2B(IAM)&filtered-posts.q_operator=AND   
 https://aws.amazon.com/blogs/security/rely-employee-attributes-from-corporate-directory-create-fine-grained-permissions-aws/  
