@@ -1,9 +1,21 @@
+-- generate chatGTP interview questions
 https://clickup.com/templates/ai-prompts/interviews  
 https://codeinterview.io/blog/using-chatgpt-for-recruiting/  
 https://www.herohunt.ai/blog/9-chatgpt-prompts-for-recruiters  
 https://www.talentlyft.com/en/blog/article/490/how-to-use-chatgpt-for-recruiting-guide-prompts  
 https://www.tryexponent.com/blog/design-chatgpt-system-design-mock-interview  
-https://skimai.com/how-to-write-job-descriptions-and-interview-questions-with-chatgpt/  
+https://skimai.com/how-to-write-job-descriptions-and-interview-questions-with-chatgpt/   
+
+-- using DBT with AWS GLUE  
+https://aws.amazon.com/blogs/big-data/build-and-manage-your-modern-data-stack-using-dbt-and-aws-glue-through-dbt-glue-the-new-trusted-dbt-adapter/  
+https://docs.getdbt.com/docs/core/connect-data-platform/glue-setup  
+https://docs.getdbt.com/reference/resource-configs/glue-configs  
+https://github.com/aws-samples/dbt-glue  
+https://aws.amazon.com/blogs/big-data/create-a-modern-data-platform-using-the-data-build-tool-dbt-in-the-aws-cloud/  
+https://medium.com/@mihirsaurkar/elt-using-glue-dbt-15b4af93909b  
+https://www.linkedin.com/pulse/dbt-integration-aws-glue-runbook-chaitanya-varma/  
+https://jaehyeon.me/blog/2022-10-09-dbt-on-aws-part-2-glue/  
+[Lakehouse Data Modeling: Using dbt, Amazon Redshift Serverless, Redshift Spectrum, and AWS Glue](https://www.youtube.com/watch?v=bIxC4Pyha74)    
 
 
 -- AWS IAM ABAC  
