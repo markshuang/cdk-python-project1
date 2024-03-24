@@ -1,9 +1,9 @@
-https://clickup.com/templates/ai-prompts/interviews
-https://codeinterview.io/blog/using-chatgpt-for-recruiting/
-https://www.herohunt.ai/blog/9-chatgpt-prompts-for-recruiters
-https://www.talentlyft.com/en/blog/article/490/how-to-use-chatgpt-for-recruiting-guide-prompts
-https://www.tryexponent.com/blog/design-chatgpt-system-design-mock-interview
-https://skimai.com/how-to-write-job-descriptions-and-interview-questions-with-chatgpt/
+https://clickup.com/templates/ai-prompts/interviews  
+https://codeinterview.io/blog/using-chatgpt-for-recruiting/  
+https://www.herohunt.ai/blog/9-chatgpt-prompts-for-recruiters  
+https://www.talentlyft.com/en/blog/article/490/how-to-use-chatgpt-for-recruiting-guide-prompts  
+https://www.tryexponent.com/blog/design-chatgpt-system-design-mock-interview  
+https://skimai.com/how-to-write-job-descriptions-and-interview-questions-with-chatgpt/  
 
 
 -- AWS IAM ABAC  
