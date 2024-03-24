@@ -1,4 +1,4 @@
--- generate chatGTP interview questions
+-- generate chatGTP interview questions  
 https://clickup.com/templates/ai-prompts/interviews  
 https://codeinterview.io/blog/using-chatgpt-for-recruiting/  
 https://www.herohunt.ai/blog/9-chatgpt-prompts-for-recruiters  
