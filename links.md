@@ -6,6 +6,7 @@ https://www.talentlyft.com/en/blog/article/490/how-to-use-chatgpt-for-recruiting
 https://www.tryexponent.com/blog/design-chatgpt-system-design-mock-interview  
 https://skimai.com/how-to-write-job-descriptions-and-interview-questions-with-chatgpt/   
 
+
 -- using DBT with AWS GLUE  
 https://aws.amazon.com/blogs/big-data/build-and-manage-your-modern-data-stack-using-dbt-and-aws-glue-through-dbt-glue-the-new-trusted-dbt-adapter/  
 https://docs.getdbt.com/docs/core/connect-data-platform/glue-setup  
@@ -16,6 +17,14 @@ https://medium.com/@mihirsaurkar/elt-using-glue-dbt-15b4af93909b
 https://www.linkedin.com/pulse/dbt-integration-aws-glue-runbook-chaitanya-varma/  
 https://jaehyeon.me/blog/2022-10-09-dbt-on-aws-part-2-glue/  
 [Lakehouse Data Modeling: Using dbt, Amazon Redshift Serverless, Redshift Spectrum, and AWS Glue](https://www.youtube.com/watch?v=bIxC4Pyha74)    
+https://www.mighty.digital/blog/how-dbt-helped-us-reduce-our-etl-costs-significantly  
+https://cevo.com.au/post/dbt-on-aws-part-2/  
+https://cevo.com.au/post/dbt-on-aws-part-5/  
+[Community driven: The dbt Labs and AWS partnership](https://www.youtube.com/watch?v=Z8QQjjcEVzo  )  
+https://d1.awsstatic.com/events/Summits/reinvent2022/ANT223_Simplify-and-accelerate-data-integration-and-ETL-modernization-with-AWS-Glue.pdf  
+https://dbt-athena.github.io/  
+https://www.kamalsblog.com/2022/09/data-lakehouse-on-aws-with-hudi-and-dbt.html    
+https://www.upsolver.com/blog/introducing-automated-ingestion-for-dbt-core  
 
 
 -- AWS IAM ABAC  
