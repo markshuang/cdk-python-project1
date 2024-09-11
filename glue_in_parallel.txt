@@ -1,0 +1,1368 @@
+amazon Q prompt
+
+1. write a glue job in python that can leverage glue's native capability to process list of json files on S3 bucket in parallel, its main logic is to use jinja template to transform each json file, then filter the transformed data based on a list of specific critria, then output them to its own specifc iceberg table in aws s3.
+
+Certainly! I'll provide you with a Python script for an AWS Glue job that processes JSON files from an S3 bucket in parallel, transforms them using a Jinja template, filters the data based on specific criteria, and outputs the results to Iceberg tables in S3. Here's an example of how you can implement this: [1]
+
+import sys
+from awsglue.transforms import *
+from awsglue.utils import getResolvedOptions
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.job import Job
+from awsglue.dynamicframe import DynamicFrame
+from pyspark.sql.functions import udf
+from pyspark.sql.types import StringType
+from jinja2 import Template
+import json
+
+# Initialize Glue context and job
+args = getResolvedOptions(sys.argv, ['JOB_NAME', 'input_path', 'output_path', 'database_name'])
+sc = SparkContext()
+glueContext = GlueContext(sc)
+spark = glueContext.spark_session
+job = Job(glueContext)
+job.init(args['JOB_NAME'], args)
+
+# Define the Jinja template (you can also load this from a file)
+jinja_template = Template("""
+{
+    "transformed_id": "{{ data.id }}_transformed",
+    "name": "{{ data.name | upper }}",
+    "age": {{ data.age + 1 }},
+    "city": "{{ data.address.city }}"
+}
+""")
+
+# Define the transformation function using Jinja
+@udf(returnType=StringType())
+def transform_with_jinja(json_str):
+    data = json.loads(json_str)
+    transformed = jinja_template.render(data=data)
+    return transformed
+
+# Define the filter criteria
+def filter_criteria(record):
+    return record['age'] > 25 and record['city'] in ['New York', 'Los Angeles', 'Chicago']
+
+# Read input data
+input_dyf = glueContext.create_dynamic_frame.from_options(
+    connection_type="s3",
+    connection_options={"paths": [args['input_path']]},
+    format="json"
+)
+
+# Convert to DataFrame, apply Jinja transformation, and convert back to DynamicFrame
+df = input_dyf.toDF()
+transformed_df = df.withColumn("transformed_data", transform_with_jinja(df.to_json()))
+transformed_dyf = DynamicFrame.fromDF(transformed_df, glueContext, "transformed_dyf")
+
+# Apply filter
+filtered_dyf = Filter.apply(frame=transformed_dyf, f=filter_criteria)
+
+# Write to Iceberg table
+glueContext.write_dynamic_frame.from_options(
+    frame=filtered_dyf,
+    connection_type="iceberg",
+    connection_options={
+        "path": args['output_path'],
+        "database": args['database_name'],
+        "table": "transformed_data"
+    },
+    format="iceberg"
+)
+
+# Commit the job
+job.commit()
+
+This script does the following:
+
+It initializes the Glue job and sets up the necessary contexts.
+
+Defines a Jinja template for transforming the JSON data. You can modify this template according to your specific transformation needs.
+
+Creates a UDF (User Defined Function) that applies the Jinja template to each JSON record.
+
+Defines a filter criteria function. In this example, it filters records where age is greater than 25 and the city is one of New York, Los Angeles, or Chicago. You can modify this function to match your specific filtering needs.
+
+Reads the input JSON files from the specified S3 path.
+
+Applies the Jinja transformation to each record.
+
+Filters the transformed data based on the defined criteria.
+
+Writes the result to an Iceberg table in the specified S3 location.
+
+To run this job, you'll need to provide the following parameters:
+
+JOB_NAME: The name of your Glue job
+
+input_path: The S3 path where your input JSON files are located
+
+output_path: The S3 path where you want to store the Iceberg table
+
+database_name: The name of the Glue database where the Iceberg table will be registered
+
+Make sure you have the necessary permissions set up for your Glue job to read from the input S3 bucket and write to the output S3 bucket, as well as create and manage Iceberg tables. [2]
+
+This job leverages Glue's ability to process files in parallel, as it uses Glue's native DataFrame and DynamicFrame operations which are distributed by default. The level of parallelism can be further tuned by adjusting Glue job parameters such as number of workers and worker type.
+
+Remember to add any necessary dependencies (like Jinja2) to your Glue job's Python library path or use a custom Glue image that includes these dependencies.
+
+Sources
+[1] AWS Glue examples using SDK for Python (Boto3) - AWS SDK Code Examples
+docs.aws.amazon.comcode-librarylatestpython_3_glue_code_examples.html
+[2] Generate test data using an AWS Glue job and Python - AWS Prescriptive Guidance
+docs.aws.amazon.comprescriptive-guidancelatestgenerate-test-data-using-an-aws-glue-job-and-python.html
+
+
+
+
+save the output into glue_job_q_1.py
+
+2. how can we know for sure glue job script from file 'glue_job_q_1.py' will process in parallel the json files loaded from S3 bucket instead of in sequential order?
+
+You're right to ask about this, as it's an important aspect of optimizing performance in Glue jobs. Let's examine the script in 'glue_job_q_1.py' to understand how it handles parallelism:
+
+Parallel Data Loading: The script uses glueContext.create_dynamic_frame.from_options() to read data from S3. This method inherently leverages Glue's distributed processing capabilities. When you specify an S3 path, Glue will automatically partition the input data and process these partitions in parallel across multiple executors. [1]
+
+Distributed Transformations: The subsequent operations (like withColumn(), Filter.apply()) are performed on Spark DataFrames and DynamicFrames. These are distributed data structures in Spark, which Glue uses under the hood. Operations on these structures are automatically parallelized across the available executors.
+
+Parallel Writing: The write_dynamic_frame.from_options() method used to write to the Iceberg table also operates in a distributed manner, with multiple executors writing data simultaneously.
+
+However, to ensure optimal parallelism and performance, you should consider the following:
+
+Input Data Partitioning: Ensure your input data in S3 is properly partitioned. If you have a small number of large files, it might limit parallelism. Many smaller files (but not too small) can be processed more efficiently in parallel.
+
+Glue Job Configuration: The level of parallelism is also influenced by the Glue job configuration. You can adjust parameters like:
+
+Number of workers
+
+Worker type
+
+Maximum concurrent DPUs
+
+Monitoring and Tuning: Use AWS Glue's built-in monitoring tools to observe how your job is utilizing resources. You might see metrics related to executor utilization, which can indicate if your job is truly running in parallel.
+
+Explicit Partitioning: If needed, you can add explicit partitioning to your transformations. For example:
+
+df = df.repartition(100)  # Adjust the number based on your data size and available resources
+
+Avoid Operations that Force Serialization: Some operations, like collect() or toPandas(), can force operations to run sequentially. The current script avoids these, which is good for maintaining parallelism.
+
+To be absolutely certain about the parallelism, you could:
+
+Add logging statements to track the processing of individual files.
+
+Monitor the Glue job metrics in the AWS console during execution.
+
+Analyze the Spark UI (if enabled) to see how tasks are distributed.
+
+Remember, while the script is set up to leverage Glue's parallel processing capabilities, the actual level of parallelism will depend on factors like input data size, job configuration, and available resources. You may need to experiment with different configurations to find the optimal setup for your specific use case.
+
+3. please incorporate above suggestions into 'glue_job_q_1.py' file
+
+Certainly! I'll incorporate the suggestions to enhance parallelism and add some monitoring capabilities to the 'glue_job_q_1.py' file. Here's the updated version: [1]
+
+import sys
+from awsglue.transforms import *
+from awsglue.utils import getResolvedOptions
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.job import Job
+from awsglue.dynamicframe import DynamicFrame
+from pyspark.sql.functions import udf, input_file_name
+from pyspark.sql.types import StringType
+from jinja2 import Template
+import json
+import logging
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Initialize Glue context and job
+args = getResolvedOptions(sys.argv, ['JOB_NAME', 'input_path', 'output_path', 'database_name', 'num_partitions'])
+sc = SparkContext()
+glueContext = GlueContext(sc)
+spark = glueContext.spark_session
+job = Job(glueContext)
+job.init(args['JOB_NAME'], args)
+
+# Define the Jinja template (you can also load this from a file)
+jinja_template = Template("""
+{
+    "transformed_id": "{{ data.id }}_transformed",
+    "name": "{{ data.name | upper }}",
+    "age": {{ data.age + 1 }},
+    "city": "{{ data.address.city }}"
+}
+""")
+
+# Define the transformation function using Jinja
+@udf(returnType=StringType())
+def transform_with_jinja(json_str):
+    data = json.loads(json_str)
+    transformed = jinja_template.render(data=data)
+    return transformed
+
+# Define the filter criteria
+def filter_criteria(record):
+    return record['age'] > 25 and record['city'] in ['New York', 'Los Angeles', 'Chicago']
+
+# Read input data
+input_dyf = glueContext.create_dynamic_frame.from_options(
+    connection_type="s3",
+    connection_options={"paths": [args['input_path']]},
+    format="json"
+)
+
+# Convert to DataFrame and add input file name for tracking
+df = input_dyf.toDF().withColumn("input_file", input_file_name())
+
+# Log the number of partitions
+logger.info(f"Number of partitions after reading: {df.rdd.getNumPartitions()}")
+
+# Repartition if necessary
+num_partitions = int(args['num_partitions'])
+if df.rdd.getNumPartitions() < num_partitions:
+    df = df.repartition(num_partitions)
+    logger.info(f"Repartitioned to {num_partitions} partitions")
+
+# Apply Jinja transformation
+transformed_df = df.withColumn("transformed_data", transform_with_jinja(df.to_json()))
+
+# Log sample of transformed data
+logger.info("Sample of transformed data:")
+transformed_df.select("input_file", "transformed_data").show(5, truncate=False)
+
+# Convert back to DynamicFrame
+transformed_dyf = DynamicFrame.fromDF(transformed_df, glueContext, "transformed_dyf")
+
+# Apply filter
+filtered_dyf = Filter.apply(frame=transformed_dyf, f=filter_criteria)
+
+# Log the count of records after filtering
+filtered_count = filtered_dyf.count()
+logger.info(f"Number of records after filtering: {filtered_count}")
+
+# Write to Iceberg table
+glueContext.write_dynamic_frame.from_options(
+    frame=filtered_dyf,
+    connection_type="iceberg",
+    connection_options={
+        "path": args['output_path'],
+        "database": args['database_name'],
+        "table": "transformed_data"
+    },
+    format="iceberg"
+)
+
+# Log job completion
+logger.info("Job completed successfully")
+
+# Commit the job
+job.commit()
+
+
+Here are the key changes and enhancements:
+
+Added logging: We've set up a logger to provide more visibility into the job's progress.
+
+Input file tracking: We're now tracking the input file name for each record, which can help in debugging and monitoring.
+
+Partition management:
+
+We log the initial number of partitions.
+
+We've added a new job parameter num_partitions to allow dynamic control over the number of partitions.
+
+If the initial number of partitions is less than the specified number, we repartition the DataFrame.
+
+Logging transformations: We now log a sample of the transformed data for verification.
+
+Performance monitoring: We log the count of records after filtering, which can help identify any unexpected data loss or filtering issues.
+
+To run this enhanced job, you'll need to provide an additional parameter:
+
+num_partitions: The desired number of partitions for processing
+
+This script now provides better visibility into the parallel processing of the job and allows for more control over the level of parallelism through the num_partitions parameter.
+
+Remember to adjust the Glue job configuration (number of workers, worker type, etc.) in the AWS Glue console or through AWS CLI/SDK to match your parallelism needs.
+
+Also, enable Spark UI in your Glue job settings if you want even more detailed insights into task distribution and execution.
+
+These enhancements will help ensure that your Glue job is processing files in parallel and allow you to monitor and optimize its performance more effectively.
+
+
+
+4. from what glue metrics provided by aws natively can we use to monitor and ensure glue job are processing those json files in parallel?
+
+AWS Glue provides several native metrics that can help you monitor and ensure your Glue job is processing JSON files in parallel. These metrics are available through Amazon CloudWatch. Here are some key metrics you can use: [1]
+
+ETL Data Movement Metrics:
+
+glue.driver.aggregate.bytesRead: Total number of bytes read from all data sources.
+
+glue.driver.aggregate.numRecords: Number of records read from all data sources.
+
+glue.driver.aggregate.bytesWritten: Total number of bytes written to all data sinks.
+
+These metrics can show you the overall data processing volume and rate, which can indicate parallel processing.
+
+Executor Metrics:
+
+glue.driver.ExecutorAllocationManager.executors.numberAllExecutors: The number of executors currently allocated.
+
+glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors: The maximum number of executors needed.
+
+These metrics show how many executors are being used, which directly relates to parallel processing.
+
+DPU Metrics:
+
+glue.driver.system.numExecutors: The number of executors running.
+
+glue.driver.system.executorCPUUsage: CPU usage of the executors.
+
+glue.driver.system.executorMemoryUsage: Memory usage of the executors.
+
+These metrics give you insight into resource utilization across multiple DPUs.
+
+Job Metrics:
+
+glue.driver.aggregate.elapsedTime: Total elapsed time of the job. [2]
+
+glue.driver.aggregate.numCompletedStages: Number of completed stages.
+
+glue.driver.aggregate.numCompletedTasks: Number of completed tasks.
+
+These metrics can show you the progress of the job and how tasks are being completed over time.
+
+S3 Metrics:
+
+glue.driver.s3.filesystem.read_bytes: Number of bytes read from S3.
+
+glue.driver.s3.filesystem.write_bytes: Number of bytes written to S3.
+
+These metrics can indicate parallel read/write operations to S3.
+
+To monitor these metrics:
+
+In the AWS Glue console, go to your job's run details and check the "Job Metrics" tab.
+
+Use Amazon CloudWatch to create custom dashboards with these metrics. [3]
+
+Set up CloudWatch Alarms on these metrics to get notified of any issues.
+
+To ensure your job is processing files in parallel, you should see:
+
+Multiple executors running simultaneously (check numExecutors and numberAllExecutors)
+
+Consistent CPU and memory usage across executors
+
+Steady increase in bytesRead, numRecords, and bytesWritten over time
+
+Multiple stages and tasks completing concurrently
+
+If you see these patterns in your metrics, it's a good indication that your Glue job is indeed processing the JSON files in parallel.
+
+To incorporate some of these metrics into your Glue job for logging, you could add code like this:
+
+from awsglue.job import Job
+import boto3
+
+# ... (rest of your Glue job code)
+
+# Get CloudWatch client
+cloudwatch = boto3.client('cloudwatch')
+
+# Function to log a metric
+def log_metric(metric_name, value):
+    cloudwatch.put_metric_data(
+        Namespace='Glue',
+        MetricData=[
+            {
+                'MetricName': metric_name,
+                'Value': value,
+                'Unit': 'Count'
+            }
+        ]
+    )
+
+# Log metrics at various points in your job
+log_metric('NumberOfExecutors', sc.getConf().get("spark.executor.instances"))
+log_metric('NumberOfRecordsProcessed', filtered_dyf.count())
+
+# ... (rest of your Glue job code)
+
+This will allow you to log custom metrics to CloudWatch, which you can then monitor to ensure parallel processing.
+
+5. please write the terraform templates to deploy Amazon CloudWatch to create custom dashboards with these metrics to monitor the glue jobs to ensure its parallelism.
+
+Certainly! I'll provide you with a Terraform template to create a CloudWatch dashboard that monitors the key metrics for your Glue job's parallelism. This template will create a dashboard with widgets for the most relevant metrics we discussed earlier. [1]
+
+Here's the Terraform code:
+
+provider "aws" {
+  region = "us-west-2"  # Replace with your preferred region
+}
+
+resource "aws_cloudwatch_dashboard" "glue_parallelism_dashboard" {
+  dashboard_name = "GlueJobParallelismDashboard"
+
+  dashboard_body = jsonencode({
+    widgets = [
+      {
+        type   = "metric"
+        x      = 0
+        y      = 0
+        width  = 12
+        height = 6
+        properties = {
+          metrics = [
+            ["Glue", "glue.driver.aggregate.numRecords", "JobName", "YourGlueJobName"],
+            [".", "glue.driver.aggregate.bytesRead", ".", "."],
+            [".", "glue.driver.aggregate.bytesWritten", ".", "."]
+          ]
+          view    = "timeSeries"
+          stacked = false
+          region  = "us-west-2"
+          title   = "Data Movement Metrics"
+          period  = 300
+        }
+      },
+      {
+        type   = "metric"
+        x      = 12
+        y      = 0
+        width  = 12
+        height = 6
+        properties = {
+          metrics = [
+            ["Glue", "glue.driver.ExecutorAllocationManager.executors.numberAllExecutors", "JobName", "YourGlueJobName"],
+            [".", "glue.driver.ExecutorAllocationManager.executors.numberMaxNeededExecutors", ".", "."]
+          ]
+          view    = "timeSeries"
+          stacked = false
+          region  = "us-west-2"
+          title   = "Executor Metrics"
+          period  = 300
+        }
+      },
+      {
+        type   = "metric"
+        x      = 0
+        y      = 6
+        width  = 12
+        height = 6
+        properties = {
+          metrics = [
+            ["Glue", "glue.driver.system.numExecutors", "JobName", "YourGlueJobName"],
+            [".", "glue.driver.system.executorCPUUsage", ".", "."],
+            [".", "glue.driver.system.executorMemoryUsage", ".", "."]
+          ]
+          view    = "timeSeries"
+          stacked = false
+          region  = "us-west-2"
+          title   = "DPU Metrics"
+          period  = 300
+        }
+      },
+      {
+        type   = "metric"
+        x      = 12
+        y      = 6
+        width  = 12
+        height = 6
+        properties = {
+          metrics = [
+            ["Glue", "glue.driver.aggregate.numCompletedStages", "JobName", "YourGlueJobName"],
+            [".", "glue.driver.aggregate.numCompletedTasks", ".", "."]
+          ]
+          view    = "timeSeries"
+          stacked = false
+          region  = "us-west-2"
+          title   = "Job Progress Metrics"
+          period  = 300
+        }
+      }
+    ]
+  })
+}
+
+# Optional: Create CloudWatch Alarms for key metrics
+
+resource "aws_cloudwatch_metric_alarm" "low_executor_count" {
+  alarm_name          = "GlueJobLowExecutorCount"
+  comparison_operator = "LessThanThreshold"
+  evaluation_periods  = "2"
+  metric_name         = "glue.driver.ExecutorAllocationManager.executors.numberAllExecutors"
+  namespace           = "Glue"
+  period              = "300"
+  statistic           = "Average"
+  threshold           = "2"  # Adjust based on your expected minimum executor count
+  alarm_description   = "This metric monitors the number of Glue job executors"
+  alarm_actions       = []  # Add SNS topic ARN here if you want notifications
+
+  dimensions = {
+    JobName = "YourGlueJobName"
+  }
+}
+
+resource "aws_cloudwatch_metric_alarm" "high_cpu_usage" {
+  alarm_name          = "GlueJobHighCPUUsage"
+  comparison_operator = "GreaterThanThreshold"
+  evaluation_periods  = "2"
+  metric_name         = "glue.driver.system.executorCPUUsage"
+  namespace           = "Glue"
+  period              = "300"
+  statistic           = "Average"
+  threshold           = "80"  # Adjust based on your expected CPU usage
+  alarm_description   = "This metric monitors the CPU usage of Glue job executors"
+  alarm_actions       = []  # Add SNS topic ARN here if you want notifications
+
+  dimensions = {
+    JobName = "YourGlueJobName"
+  }
+}
+
+
+This Terraform configuration does the following:
+
+Creates a CloudWatch dashboard named "GlueJobParallelismDashboard".
+
+Adds four metric widgets to the dashboard:
+
+Data Movement Metrics: Shows the number of records processed, bytes read, and bytes written.
+
+Executor Metrics: Displays the number of allocated executors and the maximum needed executors.
+
+DPU Metrics: Shows the number of executors, CPU usage, and memory usage.
+
+Job Progress Metrics: Displays the number of completed stages and tasks.
+
+Optionally creates two CloudWatch Alarms:
+
+An alarm for low executor count, which triggers if the number of executors falls below a threshold.
+
+An alarm for high CPU usage, which triggers if the average CPU usage exceeds a threshold.
+
+To use this template:
+
+Replace "YourGlueJobName" with the actual name of your Glue job in all places it appears.
+
+Adjust the region in the provider block and in each widget's properties if you're not using us-west-2.
+
+If you want to receive notifications for the alarms, add an SNS topic ARN to the alarm_actions list in each alarm resource.
+
+Adjust the thresholds in the alarm resources based on your specific job requirements.
+
+If you need additional metrics or want to modify the layout, you can adjust the widgets in the dashboard_body.
+
+After applying this Terraform configuration, you'll have a CloudWatch dashboard that helps you monitor the parallelism of your Glue job, along with alarms to alert you if the job isn't performing as expected.
+
+
+
+
+
+github copilot prompt
+1. write a glue job in python that can leverage glue's native capability to process list of json files on S3 bucket in parallel, its main logic is to use jinja template to transform the json file and output them to another S3 bucket in parquet file format.
+
+Plan
+Setup AWS Glue Job:
+
+Import necessary libraries.
+Initialize GlueContext and SparkSession.
+Read JSON Files from S3:
+
+Use glueContext.create_dynamic_frame.from_options to read JSON files from the source S3 bucket.
+Transform JSON using Jinja Template:
+
+Load the Jinja template.
+Apply the template transformation to each JSON record.
+Write Transformed Data to S3 in Parquet Format:
+
+Convert the transformed data to a DynamicFrame.
+Write the DynamicFrame to the destination S3 bucket in Parquet format.
+
+code 
+
+import sys
+import boto3
+from awsglue.transforms import *
+from awsglue.utils import getResolvedOptions
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.job import Job
+from jinja2 import Template
+import json
+
+# Initialize GlueContext and SparkSession
+sc = SparkContext()
+glueContext = GlueContext(sc)
+spark = glueContext.spark_session
+job = Job(glueContext)
+
+# Get job parameters
+args = getResolvedOptions(sys.argv, ['JOB_NAME', 'SOURCE_S3_BUCKET', 'DEST_S3_BUCKET', 'JINJA_TEMPLATE'])
+
+job.init(args['JOB_NAME'], args)
+
+# Read JSON files from S3
+source_s3_path = f"s3://{args['SOURCE_S3_BUCKET']}/*.json"
+dynamic_frame = glueContext.create_dynamic_frame.from_options(
+    connection_type="s3",
+    connection_options={"paths": [source_s3_path]},
+    format="json"
+)
+
+# Load Jinja template
+s3_client = boto3.client('s3')
+template_obj = s3_client.get_object(Bucket=args['SOURCE_S3_BUCKET'], Key=args['JINJA_TEMPLATE'])
+template_content = template_obj['Body'].read().decode('utf-8')
+template = Template(template_content)
+
+# Transform JSON using Jinja template
+def transform_record(record):
+    transformed_json = template.render(record)
+    return json.loads(transformed_json)
+
+transformed_rdd = dynamic_frame.toDF().rdd.map(lambda row: transform_record(row.asDict()))
+transformed_df = spark.createDataFrame(transformed_rdd)
+
+# Convert to DynamicFrame
+transformed_dynamic_frame = DynamicFrame.fromDF(transformed_df, glueContext, "transformed_dynamic_frame")
+
+# Write transformed data to S3 in Parquet format
+destination_s3_path = f"s3://{args['DEST_S3_BUCKET']}/"
+glueContext.write_dynamic_frame.from_options(
+    frame=transformed_dynamic_frame,
+    connection_type="s3",
+    connection_options={"path": destination_s3_path},
+    format="parquet"
+)
+
+job.commit()
+
+----------
+
+Explanation
+
+Initialization:
+
+Initialize GlueContext, SparkSession, and Job.
+Retrieve job parameters including source and destination S3 buckets and the Jinja template file.
+Reading JSON Files:
+
+Read JSON files from the source S3 bucket into a DynamicFrame.
+Loading and Applying Jinja Template:
+
+Load the Jinja template from S3.
+Apply the template transformation to each JSON record.
+Writing Transformed Data:
+
+Convert the transformed data to a DynamicFrame.
+Write the DynamicFrame to the destination S3 bucket in Parquet format.
+This script leverages AWS Glue's capabilities to process and transform JSON files in parallel, using Jinja templates for transformation and outputting the results in Parquet format.
+
+2. please add two additional requirements to glue_job.py file, one is to use filter based on list of specific criteria to output corresponding data into its own table from final data frame, second is to leverage glue's auto scale capability to process data.
+
+Plan
+Add Filtering Logic:
+
+Define a list of criteria.
+Filter the final DataFrame based on these criteria.
+Output the filtered data into separate tables.
+Leverage Glue's Auto Scaling:
+
+Enable auto-scaling by setting the appropriate configurations.
+Updated Code
+
+import sys
+import boto3
+from awsglue.transforms import *
+from awsglue.utils import getResolvedOptions
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.job import Job
+from jinja2 import Template
+import json
+
+# Initialize GlueContext and SparkSession
+sc = SparkContext()
+glueContext = GlueContext(sc)
+spark = glueContext.spark_session
+job = Job(glueContext)
+
+# Enable Glue Auto Scaling
+sc._jsc.hadoopConfiguration().set("spark.executor.memory", "4g")
+sc._jsc.hadoopConfiguration().set("spark.executor.cores", "4")
+sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.enabled", "true")
+sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.minExecutors", "1")
+sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.maxExecutors", "10")
+
+# Get job parameters
+args = getResolvedOptions(sys.argv, ['JOB_NAME', 'SOURCE_S3_BUCKET', 'DEST_S3_BUCKET', 'JINJA_TEMPLATE'])
+
+job.init(args['JOB_NAME'], args)
+
+# Read JSON files from S3
+source_s3_path = f"s3://{args['SOURCE_S3_BUCKET']}/*.json"
+dynamic_frame = glueContext.create_dynamic_frame.from_options(
+    connection_type="s3",
+    connection_options={"paths": [source_s3_path]},
+    format="json"
+)
+
+# Load Jinja template
+s3_client = boto3.client('s3')
+template_obj = s3_client.get_object(Bucket=args['SOURCE_S3_BUCKET'], Key=args['JINJA_TEMPLATE'])
+template_content = template_obj['Body'].read().decode('utf-8')
+template = Template(template_content)
+
+# Transform JSON using Jinja template
+def transform_record(record):
+    transformed_json = template.render(record)
+    return json.loads(transformed_json)
+
+transformed_rdd = dynamic_frame.toDF().rdd.map(lambda row: transform_record(row.asDict()))
+transformed_df = spark.createDataFrame(transformed_rdd)
+
+# Define criteria for filtering
+criteria_list = ["criteria1", "criteria2", "criteria3"]
+
+# Filter and write data based on criteria
+for criteria in criteria_list:
+    filtered_df = transformed_df.filter(transformed_df['criteria_column'] == criteria)
+    filtered_dynamic_frame = DynamicFrame.fromDF(filtered_df, glueContext, f"filtered_dynamic_frame_{criteria}")
+    destination_s3_path = f"s3://{args['DEST_S3_BUCKET']}/{criteria}/"
+    glueContext.write_dynamic_frame.from_options(
+        frame=filtered_dynamic_frame,
+        connection_type="s3",
+        connection_options={"path": destination_s3_path},
+        format="parquet"
+    )
+
+job.commit()
+
+
+-------
+
+Explanation
+Auto Scaling Configuration:
+
+Set Spark configurations to enable dynamic allocation of executors, allowing Glue to auto-scale based on the workload.
+Filtering Logic:
+
+Define a list of criteria.
+Filter the transformed DataFrame based on each criterion.
+Write the filtered data to separate tables in the destination S3 bucket.
+This updated script now includes logic to filter the final DataFrame based on specific criteria and leverages Glue's auto-scaling capabilities to efficiently process the data.
+
+3. please update 'glue_job.py' to write data to iceberg table in aws s3 for a given glue database
+
+Plan
+Add Iceberg Configuration:
+
+Configure the Iceberg catalog and table.
+Modify Write Logic:
+
+Write the transformed data to an Iceberg table in the specified Glue database.
+
+Updated Code
+
+import sys
+import boto3
+from awsglue.transforms import *
+from awsglue.utils import getResolvedOptions
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.job import Job
+from jinja2 import Template
+import json
+
+# Initialize GlueContext and SparkSession
+sc = SparkContext()
+glueContext = GlueContext(sc)
+spark = glueContext.spark_session
+job = Job(glueContext)
+
+# Enable Glue Auto Scaling
+sc._jsc.hadoopConfiguration().set("spark.executor.memory", "4g")
+sc._jsc.hadoopConfiguration().set("spark.executor.cores", "4")
+sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.enabled", "true")
+sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.minExecutors", "1")
+sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.maxExecutors", "10")
+
+# Get job parameters
+args = getResolvedOptions(sys.argv, ['JOB_NAME', 'SOURCE_S3_BUCKET', 'DEST_S3_BUCKET', 'JINJA_TEMPLATE', 'GLUE_DATABASE', 'ICEBERG_TABLE'])
+
+job.init(args['JOB_NAME'], args)
+
+# Read JSON files from S3
+source_s3_path = f"s3://{args['SOURCE_S3_BUCKET']}/*.json"
+dynamic_frame = glueContext.create_dynamic_frame.from_options(
+    connection_type="s3",
+    connection_options={"paths": [source_s3_path]},
+    format="json"
+)
+
+# Load Jinja template
+s3_client = boto3.client('s3')
+template_obj = s3_client.get_object(Bucket=args['SOURCE_S3_BUCKET'], Key=args['JINJA_TEMPLATE'])
+template_content = template_obj['Body'].read().decode('utf-8')
+template = Template(template_content)
+
+# Transform JSON using Jinja template
+def transform_record(record):
+    transformed_json = template.render(record)
+    return json.loads(transformed_json)
+
+transformed_rdd = dynamic_frame.toDF().rdd.map(lambda row: transform_record(row.asDict()))
+transformed_df = spark.createDataFrame(transformed_rdd)
+
+# Define criteria for filtering
+criteria_list = ["criteria1", "criteria2", "criteria3"]
+
+# Filter and write data based on criteria
+for criteria in criteria_list:
+    filtered_df = transformed_df.filter(transformed_df['criteria_column'] == criteria)
+    filtered_dynamic_frame = DynamicFrame.fromDF(filtered_df, glueContext, f"filtered_dynamic_frame_{criteria}")
+    
+    # Write to Iceberg table
+    iceberg_table_path = f"s3://{args['DEST_S3_BUCKET']}/{args['GLUE_DATABASE']}/{args['ICEBERG_TABLE']}_{criteria}"
+    filtered_df.write.format("iceberg").mode("append").save(iceberg_table_path)
+
+job.commit()
+
+
+-----------
+
+Explanation
+Auto Scaling Configuration:
+
+Set Spark configurations to enable dynamic allocation of executors, allowing Glue to auto-scale based on the workload.
+Iceberg Configuration:
+
+Add parameters for the Glue database and Iceberg table.
+Write the filtered data to the Iceberg table in the specified Glue database.
+This updated script now includes logic to write the filtered data to an Iceberg table in AWS S3 for a given Glue database, leveraging Glue's auto-scaling capabilities.
+
+4. how can we know for sure glue job script in 'glue_job.py' will process the json file in parallel, instead of in sequential order
+
+To ensure that the AWS Glue job script processes the JSON files in parallel, you need to leverage the distributed processing capabilities of Apache Spark, which AWS Glue is built on. Here are some key points to confirm parallel processing:
+
+SparkContext Initialization:
+
+The initialization of SparkContext and GlueContext ensures that the job can leverage Spark's distributed computing capabilities.
+RDD and DataFrame Operations:
+
+Operations on RDDs (Resilient Distributed Datasets) and DataFrames are inherently parallel in Spark. When you perform transformations like map, filter, etc., these operations are distributed across the cluster.
+Dynamic Allocation:
+
+Enabling dynamic allocation allows Spark to scale the number of executors based on the workload, which helps in parallel processing.
+Reading Data:
+
+The create_dynamic_frame.from_options method reads data in parallel by default, as it uses Spark's parallelized data reading mechanisms.
+Example Confirmation in Code
+Here is an updated version of your script with comments highlighting the parallel processing aspects:
+
+import sys
+import boto3
+from awsglue.transforms import *
+from awsglue.utils import getResolvedOptions
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.job import Job
+from jinja2 import Template
+import json
+
+# Initialize GlueContext and SparkSession
+sc = SparkContext()
+glueContext = GlueContext(sc)
+spark = glueContext.spark_session
+job = Job(glueContext)
+
+# Enable Glue Auto Scaling for parallel processing
+sc._jsc.hadoopConfiguration().set("spark.executor.memory", "4g")
+sc._jsc.hadoopConfiguration().set("spark.executor.cores", "4")
+sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.enabled", "true")
+sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.minExecutors", "1")
+sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.maxExecutors", "10")
+
+# Get job parameters
+args = getResolvedOptions(sys.argv, ['JOB_NAME', 'SOURCE_S3_BUCKET', 'DEST_S3_BUCKET', 'JINJA_TEMPLATE', 'GLUE_DATABASE', 'ICEBERG_TABLE'])
+
+job.init(args['JOB_NAME'], args)
+
+# Read JSON files from S3 in parallel
+source_s3_path = f"s3://{args['SOURCE_S3_BUCKET']}/*.json"
+dynamic_frame = glueContext.create_dynamic_frame.from_options(
+    connection_type="s3",
+    connection_options={"paths": [source_s3_path]},
+    format="json"
+)
+
+# Load Jinja template
+s3_client = boto3.client('s3')
+template_obj = s3_client.get_object(Bucket=args['SOURCE_S3_BUCKET'], Key=args['JINJA_TEMPLATE'])
+template_content = template_obj['Body'].read().decode('utf-8')
+template = Template(template_content)
+
+# Transform JSON using Jinja template in parallel
+def transform_record(record):
+    transformed_json = template.render(record)
+    return json.loads(transformed_json)
+
+# Parallel transformation using RDD map
+transformed_rdd = dynamic_frame.toDF().rdd.map(lambda row: transform_record(row.asDict()))
+transformed_df = spark.createDataFrame(transformed_rdd)
+
+# Define criteria for filtering
+criteria_list = ["criteria1", "criteria2", "criteria3"]
+
+# Filter and write data based on criteria in parallel
+for criteria in criteria_list:
+    filtered_df = transformed_df.filter(transformed_df['criteria_column'] == criteria)
+    filtered_dynamic_frame = DynamicFrame.fromDF(filtered_df, glueContext, f"filtered_dynamic_frame_{criteria}")
+    
+    # Write to Iceberg table
+    iceberg_table_path = f"s3://{args['DEST_S3_BUCKET']}/{args['GLUE_DATABASE']}/{args['ICEBERG_TABLE']}_{criteria}"
+    filtered_df.write.format("iceberg").mode("append").save(iceberg_table_path)
+
+job.commit()
+
+---------
+Key Points
+SparkContext and GlueContext: These ensure that the job can leverage Spark's distributed computing capabilities.
+Dynamic Allocation: This configuration allows Spark to dynamically allocate resources, ensuring parallel processing.
+RDD and DataFrame Operations: Operations like map and filter are inherently parallel in Spark.
+By following these practices, you can be confident that your AWS Glue job script processes the JSON files in parallel.
+
+5. from what glue metrics provided by aws natively can we use to monitor and ensure glue job are processing those json files in parallel?
+
+AWS Glue provides several metrics that can help you monitor and ensure that your Glue job is processing JSON files in parallel. Here are some key metrics to look at:
+
+DPU (Data Processing Unit) Usage:
+
+glue.driver.aggregateDPU: Measures the total DPUs used by the driver.
+glue.executor.aggregateDPU: Measures the total DPUs used by the executors.
+High DPU usage indicates that the job is utilizing multiple executors, which is a sign of parallel processing.
+Task Metrics:
+
+glue.driver.numCompletedTasks: Number of tasks completed by the driver.
+glue.executor.numCompletedTasks: Number of tasks completed by the executors.
+A high number of completed tasks by executors indicates parallel task execution.
+Job Metrics:
+
+glue.driver.numActiveJobs: Number of active jobs being processed by the driver.
+glue.executor.numActiveJobs: Number of active jobs being processed by the executors.
+Multiple active jobs suggest that the job is processing data in parallel.
+Stage Metrics:
+
+glue.driver.numActiveStages: Number of active stages being processed by the driver.
+glue.executor.numActiveStages: Number of active stages being processed by the executors.
+Multiple active stages indicate parallel processing.
+Shuffle Read/Write Metrics:
+
+glue.driver.shuffleReadBytes: Bytes read during shuffle operations by the driver.
+glue.executor.shuffleReadBytes: Bytes read during shuffle operations by the executors.
+glue.driver.shuffleWriteBytes: Bytes written during shuffle operations by the driver.
+glue.executor.shuffleWriteBytes: Bytes written during shuffle operations by the executors.
+High shuffle read/write bytes indicate data is being processed and moved between executors, which is a sign of parallel processing.
+How to Monitor These Metrics
+You can monitor these metrics using AWS CloudWatch, which natively integrates with AWS Glue. Here’s how you can set it up:
+
+Navigate to CloudWatch:
+
+Go to the AWS Management Console.
+Navigate to CloudWatch.
+Create a Dashboard:
+
+Create a new dashboard or use an existing one.
+Add widgets to the dashboard to monitor the Glue metrics mentioned above.
+Set Up Alarms:
+
+Set up CloudWatch Alarms to notify you if certain thresholds are met, indicating potential issues with parallel processing.
+Example CloudWatch Metrics Setup
+Here’s an example of how you might set up a CloudWatch dashboard to monitor these metrics:
+
+Create a Dashboard:
+
+Go to CloudWatch > Dashboards > Create dashboard.
+Name your dashboard and add widgets.
+Add Metrics:
+
+Add a new widget and select "Line" or "Number".
+Choose the Glue namespace and select the metrics such as glue.executor.aggregateDPU, glue.executor.numCompletedTasks, etc.
+Configure the widget to display these metrics.
+Set Up Alarms:
+
+Go to CloudWatch > Alarms > Create alarm.
+Select the Glue metric you want to monitor.
+Set the threshold and notification actions.
+By monitoring these metrics, you can ensure that your AWS Glue job is processing JSON files in parallel and efficiently utilizing resources.
+
+
+6. please write the terraform templates to deploy Amazon CloudWatch to create custom dashboards with these metrics to monitor the glue jobs to ensure its parallelism.
+
+Terraform Templates for CloudWatch Dashboard
+To create a CloudWatch dashboard with custom metrics to monitor AWS Glue jobs, you can use Terraform. Below are the Terraform templates to set up a CloudWatch dashboard with widgets for monitoring Glue job metrics.
+
+Step 1: Define Variables
+Create a variables.tf file to define the necessary variables.
+
+variable "dashboard_name" {
+  description = "Name of the CloudWatch dashboard"
+  type        = string
+  default     = "GlueJobMonitoringDashboard"
+}
+
+variable "glue_job_name" {
+  description = "Name of the Glue job to monitor"
+  type        = string
+}
+
+variable "region" {
+  description = "AWS region"
+  type        = string
+  default     = "us-east-1"
+}
+
+Step 2: Create CloudWatch Dashboard
+Create a cloudwatch_dashboard.tf file to define the CloudWatch dashboard and widgets.
+
+resource "aws_cloudwatch_dashboard" "glue_job_dashboard" {
+  dashboard_name = var.dashboard_name
+
+  dashboard_body = jsonencode({
+    widgets = [
+      {
+        "type" : "metric",
+        "x" : 0,
+        "y" : 0,
+        "width" : 6,
+        "height" : 6,
+        "properties" : {
+          "metrics" : [
+            [ "Glue", "glue.driver.aggregateDPU", "JobName", var.glue_job_name ],
+            [ ".", "glue.executor.aggregateDPU", "JobName", var.glue_job_name ]
+          ],
+          "title" : "DPU Usage",
+          "region" : var.region,
+          "stat" : "Sum",
+          "period" : 300
+        }
+      },
+      {
+        "type" : "metric",
+        "x" : 6,
+        "y" : 0,
+        "width" : 6,
+        "height" : 6,
+        "properties" : {
+          "metrics" : [
+            [ "Glue", "glue.driver.numCompletedTasks", "JobName", var.glue_job_name ],
+            [ ".", "glue.executor.numCompletedTasks", "JobName", var.glue_job_name ]
+          ],
+          "title" : "Completed Tasks",
+          "region" : var.region,
+          "stat" : "Sum",
+          "period" : 300
+        }
+      },
+      {
+        "type" : "metric",
+        "x" : 0,
+        "y" : 6,
+        "width" : 6,
+        "height" : 6,
+        "properties" : {
+          "metrics" : [
+            [ "Glue", "glue.driver.numActiveJobs", "JobName", var.glue_job_name ],
+            [ ".", "glue.executor.numActiveJobs", "JobName", var.glue_job_name ]
+          ],
+          "title" : "Active Jobs",
+          "region" : var.region,
+          "stat" : "Sum",
+          "period" : 300
+        }
+      },
+      {
+        "type" : "metric",
+        "x" : 6,
+        "y" : 6,
+        "width" : 6,
+        "height" : 6,
+        "properties" : {
+          "metrics" : [
+            [ "Glue", "glue.driver.numActiveStages", "JobName", var.glue_job_name ],
+            [ ".", "glue.executor.numActiveStages", "JobName", var.glue_job_name ]
+          ],
+          "title" : "Active Stages",
+          "region" : var.region,
+          "stat" : "Sum",
+          "period" : 300
+        }
+      },
+      {
+        "type" : "metric",
+        "x" : 0,
+        "y" : 12,
+        "width" : 6,
+        "height" : 6,
+        "properties" : {
+          "metrics" : [
+            [ "Glue", "glue.driver.shuffleReadBytes", "JobName", var.glue_job_name ],
+            [ ".", "glue.executor.shuffleReadBytes", "JobName", var.glue_job_name ]
+          ],
+          "title" : "Shuffle Read Bytes",
+          "region" : var.region,
+          "stat" : "Sum",
+          "period" : 300
+        }
+      },
+      {
+        "type" : "metric",
+        "x" : 6,
+        "y" : 12,
+        "width" : 6,
+        "height" : 6,
+        "properties" : {
+          "metrics" : [
+            [ "Glue", "glue.driver.shuffleWriteBytes", "JobName", var.glue_job_name ],
+            [ ".", "glue.executor.shuffleWriteBytes", "JobName", var.glue_job_name ]
+          ],
+          "title" : "Shuffle Write Bytes",
+          "region" : var.region,
+          "stat" : "Sum",
+          "period" : 300
+        }
+      }
+    ]
+  })
+}
+
+Step 3: Provider Configuration
+Create a provider.tf file to configure the AWS provider.
+
+provider "aws" {
+  region = var.region
+}
+
+Step 4: Outputs
+Create an outputs.tf file to output the dashboard URL.
+
+output "cloudwatch_dashboard_url" {
+  value = "https://${var.region}.console.aws.amazon.com/cloudwatch/home?region=${var.region}#dashboards:name=${aws_cloudwatch_dashboard.glue_job_dashboard.dashboard_name}"
+}
+
+Step 5: Terraform Initialization and Deployment
+Initialize Terraform:
+terraform init
+Apply the Configuration:
+terraform apply
+
+Provide the necessary variable values when prompted.
+
+Explanation
+Variables: Define the necessary variables for the dashboard name, Glue job name, and AWS region.
+CloudWatch Dashboard: Create a CloudWatch dashboard with widgets for monitoring DPU usage, completed tasks, active jobs, active stages, shuffle read bytes, and shuffle write bytes.
+Provider Configuration: Configure the AWS provider with the specified region.
+Outputs: Output the URL of the CloudWatch dashboard for easy access.
+By following these steps, you can deploy a CloudWatch dashboard using Terraform to monitor your AWS Glue jobs and ensure they are processing data in parallel.
+
+7. How can I configure AWS Glue to process data in parallel?
+
+To configure AWS Glue to process data in parallel, you need to leverage its underlying Apache Spark engine, which is designed for distributed data processing. Here are the key steps and configurations to ensure parallel processing in AWS Glue:
+
+1. Enable Dynamic Allocation
+Dynamic allocation allows Spark to dynamically adjust the number of executors based on the workload, which helps in parallel processing.
+
+sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.enabled", "true")
+sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.minExecutors", "1")
+sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.maxExecutors", "10")
+
+
+2. Configure Sufficient DPUs
+Ensure that your Glue job has enough Data Processing Units (DPUs) allocated. More DPUs mean more parallel processing power.
+
+# When creating the Glue job, specify the number of DPUs
+# For example, in the AWS Management Console or using the AWS CLI
+
+3. Use Parallelizable Operations
+Ensure that your data transformations and actions are parallelizable. Operations like map, filter, and reduce are inherently parallel in Spark.
+
+# Example of parallelizable operations
+transformed_rdd = dynamic_frame.toDF().rdd.map(lambda row: transform_record(row.asDict()))
+transformed_df = spark.createDataFrame(transformed_rdd)
+
+4. Optimize Data Partitioning
+Partitioning your data correctly can significantly improve parallel processing. Ensure that your data is partitioned in a way that allows Spark to process it in parallel.
+
+# Example of partitioning data
+dynamic_frame = dynamic_frame.repartition(10)  # Repartition into 10 partitions
+
+5. Use GlueContext for Parallel Data Reading
+AWS Glue's create_dynamic_frame.from_options method reads data in parallel by default.
+
+dynamic_frame = glueContext.create_dynamic_frame.from_options(
+    connection_type="s3",
+    connection_options={"paths": [source_s3_path]},
+    format="json"
+)
+
+
+6. Monitor and Tune Performance
+Use CloudWatch metrics to monitor the performance of your Glue jobs and adjust configurations as needed.
+
+Example Glue Job Script
+Here is an example Glue job script that incorporates these configurations:
+
+import sys
+import boto3
+from awsglue.transforms import *
+from awsglue.utils import getResolvedOptions
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.job import Job
+from jinja2 import Template
+import json
+
+# Initialize GlueContext and SparkSession
+sc = SparkContext()
+glueContext = GlueContext(sc)
+spark = glueContext.spark_session
+job = Job(glueContext)
+
+# Enable Glue Auto Scaling for parallel processing
+sc._jsc.hadoopConfiguration().set("spark.executor.memory", "4g")
+sc._jsc.hadoopConfiguration().set("spark.executor.cores", "4")
+sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.enabled", "true")
+sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.minExecutors", "1")
+sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.maxExecutors", "10")
+
+# Get job parameters
+args = getResolvedOptions(sys.argv, ['JOB_NAME', 'SOURCE_S3_BUCKET', 'DEST_S3_BUCKET', 'JINJA_TEMPLATE', 'GLUE_DATABASE', 'ICEBERG_TABLE'])
+
+job.init(args['JOB_NAME'], args)
+
+# Read JSON files from S3 in parallel
+source_s3_path = f"s3://{args['SOURCE_S3_BUCKET']}/*.json"
+dynamic_frame = glueContext.create_dynamic_frame.from_options(
+    connection_type="s3",
+    connection_options={"paths": [source_s3_path]},
+    format="json"
+)
+
+# Load Jinja template
+s3_client = boto3.client('s3')
+template_obj = s3_client.get_object(Bucket=args['SOURCE_S3_BUCKET'], Key=args['JINJA_TEMPLATE'])
+template_content = template_obj['Body'].read().decode('utf-8')
+template = Template(template_content)
+
+# Transform JSON using Jinja template in parallel
+def transform_record(record):
+    transformed_json = template.render(record)
+    return json.loads(transformed_json)
+
+# Parallel transformation using RDD map
+transformed_rdd = dynamic_frame.toDF().rdd.map(lambda row: transform_record(row.asDict()))
+transformed_df = spark.createDataFrame(transformed_rdd)
+
+# Define criteria for filtering
+criteria_list = ["criteria1", "criteria2", "criteria3"]
+
+# Filter and write data based on criteria in parallel
+for criteria in criteria_list:
+    filtered_df = transformed_df.filter(transformed_df['criteria_column'] == criteria)
+    filtered_dynamic_frame = DynamicFrame.fromDF(filtered_df, glueContext, f"filtered_dynamic_frame_{criteria}")
+    
+    # Write to Iceberg table
+    iceberg_table_path = f"s3://{args['DEST_S3_BUCKET']}/{args['GLUE_DATABASE']}/{args['ICEBERG_TABLE']}_{criteria}"
+    filtered_df.write.format("iceberg").mode("append").save(iceberg_table_path)
+
+job.commit()
+
+Summary
+By following these steps and configurations, you can ensure that your AWS Glue job processes data in parallel, leveraging the full power of the underlying Apache Spark engine.
+
+8. do we still need to add following to the glue job to ensure its parallism if we enable the auto scale in glue job alreadly?
+
+sc._jsc.hadoopConfiguration().set("spark.executor.memory", "4g") sc._jsc.hadoopConfiguration().set("spark.executor.cores", "4") sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.enabled", "true") sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.minExecutors", "1") sc._jsc.hadoopConfiguration().set("spark.dynamicAllocation.maxExecutors", "10")
+
+If you enable auto-scaling in AWS Glue, you generally do not need to manually set the Spark configuration parameters for dynamic allocation and executor settings. AWS Glue's auto-scaling feature automatically manages the allocation of resources based on the workload, which simplifies the configuration process.
+
+However, if you want to fine-tune the behavior of the Spark job, you can still set these parameters. Here’s a breakdown of what each configuration does and whether it might still be useful:
+
+spark.executor.memory and spark.executor.cores:
+
+These settings control the memory and CPU resources allocated to each executor. While auto-scaling manages the number of executors, you might still want to control the resources per executor for performance tuning.
+spark.dynamicAllocation.enabled:
+
+This setting enables dynamic allocation, which is already managed by Glue's auto-scaling. You do not need to set this if auto-scaling is enabled.
+spark.dynamicAllocation.minExecutors and spark.dynamicAllocation.maxExecutors:
+
+These settings control the minimum and maximum number of executors. Glue's auto-scaling will handle this dynamically, so you do not need to set these unless you have specific requirements.
+Simplified Glue Job Script
+If you rely on Glue's auto-scaling, you can simplify your script by removing the manual Spark configuration settings:
+
+import sys
+import boto3
+from awsglue.transforms import *
+from awsglue.utils import getResolvedOptions
+from pyspark.context import SparkContext
+from awsglue.context import GlueContext
+from awsglue.job import Job
+from jinja2 import Template
+import json
+
+# Initialize GlueContext and SparkSession
+sc = SparkContext()
+glueContext = GlueContext(sc)
+spark = glueContext.spark_session
+job = Job(glueContext)
+
+# Get job parameters
+args = getResolvedOptions(sys.argv, ['JOB_NAME', 'SOURCE_S3_BUCKET', 'DEST_S3_BUCKET', 'JINJA_TEMPLATE', 'GLUE_DATABASE', 'ICEBERG_TABLE'])
+
+job.init(args['JOB_NAME'], args)
+
+# Read JSON files from S3 in parallel
+source_s3_path = f"s3://{args['SOURCE_S3_BUCKET']}/*.json"
+dynamic_frame = glueContext.create_dynamic_frame.from_options(
+    connection_type="s3",
+    connection_options={"paths": [source_s3_path]},
+    format="json"
+)
+
+# Load Jinja template
+s3_client = boto3.client('s3')
+template_obj = s3_client.get_object(Bucket=args['SOURCE_S3_BUCKET'], Key=args['JINJA_TEMPLATE'])
+template_content = template_obj['Body'].read().decode('utf-8')
+template = Template(template_content)
+
+# Transform JSON using Jinja template in parallel
+def transform_record(record):
+    transformed_json = template.render(record)
+    return json.loads(transformed_json)
+
+# Parallel transformation using RDD map
+transformed_rdd = dynamic_frame.toDF().rdd.map(lambda row: transform_record(row.asDict()))
+transformed_df = spark.createDataFrame(transformed_rdd)
+
+# Define criteria for filtering
+criteria_list = ["criteria1", "criteria2", "criteria3"]
+
+# Filter and write data based on criteria in parallel
+for criteria in criteria_list:
+    filtered_df = transformed_df.filter(transformed_df['criteria_column'] == criteria)
+    filtered_dynamic_frame = DynamicFrame.fromDF(filtered_df, glueContext, f"filtered_dynamic_frame_{criteria}")
+    
+    # Write to Iceberg table
+    iceberg_table_path = f"s3://{args['DEST_S3_BUCKET']}/{args['GLUE_DATABASE']}/{args['ICEBERG_TABLE']}_{criteria}"
+    filtered_df.write.format("iceberg").mode("append").save(iceberg_table_path)
+
+job.commit()
+
